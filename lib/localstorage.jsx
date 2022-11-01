@@ -6,11 +6,14 @@ const Localstorage = () => {
     const name = user ? `${user.first_name} ${user.last_name}` : false;
     const email = user ? user.email: false;
     const verified = nextAuth && nextAuth.verified ? nextAuth.verified : false;
+    const authCheck = ( localStorage.getItem("next_auth") && localStorage.getItem("next_auth") == "true" ) ? true : false;
+
     return {
         user,
         name,
         email,
-        verified
+        verified,
+        authCheck,
     };
 }
 

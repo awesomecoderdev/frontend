@@ -17,7 +17,7 @@ import request from '../lib/request';
 import { protectedRoutes } from "../lib/controller"
 import AppContext, { AppContextProvider } from '../context/AppContext';
 
-const App = ({ Component, pageProps}) => {
+const App = ({ Component, pageProps,authCheck}) => {
     // console.clear();
     const {auth,verified,isLoading} = UseAuth({middleware: "auth"})
     const router = useRouter()
@@ -34,7 +34,7 @@ const App = ({ Component, pageProps}) => {
         <Fragment>
             <AppContextProvider>
                 <Notifications  />
-                {disabledHeader.includes(route) || protectedRoutes.includes(route) ? <></> :<Header />}
+                {disabledHeader.includes(route) || protectedRoutes.includes(route) ? <></> :<Header authCheck={authCheck} />}
                 { protectedRoutes.includes(route) ?
                     <AnimatePresence>
                         {isLoading ?
@@ -96,14 +96,14 @@ const App = ({ Component, pageProps}) => {
                                 <div className="flex w-full h-full">
                                     <Sidebar />
                                     <DashboardContents>
-                                        <Component auth={auth} {...pageProps} />
+                                        <Component authCheck={authCheck} {...pageProps} />
                                     </DashboardContents>
                                 </div>
                             </motion.section>
                         }
                     </AnimatePresence>
                 :
-                    <Component  {...pageProps} />
+                    <Component authCheck={authCheck} {...pageProps} />
                 }
                 {disabledHeader.includes(route) || protectedRoutes.includes(route) ? <></> :<Footer />}
             </AppContextProvider>
@@ -112,12 +112,14 @@ const App = ({ Component, pageProps}) => {
 }
 
 // check ping
-// App.getInitialProps = async ({ req }) => {
-//     const ping = await request.get('/user/ping').then(res => res.data)
-//     console.log('====================================');
-//     console.log(ping);
-//     console.log('====================================');
-//     return { ping: ping }
-// }
+App.getInitialProps = async ( context ) => {
+    const { ctx } = context;
+    const { req } = ctx;
+    // check if we are logged in
+    const cookies = (req &&  req.cookies) ? req.cookies : false;
+    const authCheck = (cookies && cookies.next_auth  && cookies.next_auth == "true") ? true : false ;
+    console.log("authCheck",authCheck);
+    return { authCheck: authCheck }
+}
 
 export default App;

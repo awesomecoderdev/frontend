@@ -83,21 +83,21 @@ const Topbar = ({title = "Dashboard"}) => {
                                 }}
                                 initial="hidden"
                                 animate="visible"
-                                className="absolute z-10 right-0 mt-3 transform w-screen max-w-[17rem] transition ease-in-out duration-200 opacity-100 translate-y-0"
+                                className="absolute z-10 right-0 mt-3 transform w-screen lg:max-w-[16rem] max-w-[14rem] transition ease-in-out duration-200 opacity-100 translate-y-0"
                             >
-                                <span className="absolute h-3 w-3 bg-white -top-1.5 right-5 z-20 rotate-45 border-t border-l border-slate-300/50"></span>{/* dropdonw cornder */}
-                                <div class="relative border border-slate-300/50 rounded-lg shadow-lg overflow-hidden">
-                                    <div class="relative bg-white rounded-lg">
-                                        <div class="grid gap-1 py-1">
-                                            <div class=" border-b border-slate-300/50 px-4 py-3 text-sm font-medium text-gray-700">
+                                <span className="absolute pointer-events-none h-3 w-3 bg-white -top-1.5 right-[1.42rem] z-20 rotate-45 border-t border-l border-slate-300/50"></span>{/* dropdonw cornder */}
+                                <div className="relative border border-slate-300/50 rounded-lg shadow-lg overflow-hidden">
+                                    <div className="relative bg-white rounded-lg">
+                                        <div className="grid gap-1 py-1">
+                                            <div className=" border-b border-slate-300/50 px-4 py-3 text-sm font-medium text-gray-700">
                                                 <p className='w-full max-w-[15rem] truncate pr-1'>{name}</p>
                                             </div>
                                             <Link href={"/profile"} passHref>
                                                 <motion.a
                                                     variants={dropDownMotion}
-                                                    class="flex cursor-pointer flex-row items-center h-10 hover:bg-gray-100 border-l-2 border-transparent hover:border-primary-500 transition-colors"
+                                                    className="flex cursor-pointer flex-row items-center h-10 hover:bg-gray-100 border-l-2 border-transparent hover:border-primary-500 transition-colors"
                                                 >
-                                                    <div class="flex flex-row items-center text-sm font-medium">
+                                                    <div className="flex flex-row items-center text-sm font-medium">
                                                         <UserCircleIcon className='h-5 w-5 pointer-events-none mx-3' />
                                                         Profile
                                                     </div>
@@ -106,9 +106,9 @@ const Topbar = ({title = "Dashboard"}) => {
                                             <Link href={"/notifications"} passHref>
                                                 <motion.a
                                                     variants={dropDownMotion}
-                                                    class="flex cursor-pointer flex-row items-center h-10 hover:bg-gray-100 border-l-2 border-transparent hover:border-primary-500 transition-colors"
+                                                    className="flex cursor-pointer flex-row items-center h-10 hover:bg-gray-100 border-l-2 border-transparent hover:border-primary-500 transition-colors"
                                                 >
-                                                    <div class="relative flex flex-row items-center text-sm font-medium">
+                                                    <div className="relative flex flex-row items-center text-sm font-medium">
                                                         <BellIcon className='h-5 w-5 pointer-events-none mx-3' />
                                                         <span className="absolute h-2 w-2 rounded-full bg-red-500 top-0 left-6"></span>
                                                         Notifications
@@ -118,9 +118,9 @@ const Topbar = ({title = "Dashboard"}) => {
                                             <Link href={"/settings"} passHref>
                                                 <motion.a
                                                     variants={dropDownMotion}
-                                                    class="flex cursor-pointer flex-row items-center h-10 hover:bg-gray-100 border-l-2 border-transparent hover:border-primary-500 transition-colors"
+                                                    className="flex cursor-pointer flex-row items-center h-10 hover:bg-gray-100 border-l-2 border-transparent hover:border-primary-500 transition-colors"
                                                 >
-                                                    <div class="flex flex-row items-center text-sm font-medium">
+                                                    <div className="flex flex-row items-center text-sm font-medium">
                                                         <Cog6ToothIcon className='h-5 w-5 pointer-events-none mx-3' />
                                                         Settings
                                                     </div>
@@ -129,9 +129,9 @@ const Topbar = ({title = "Dashboard"}) => {
                                             <Link href={"/support"} passHref>
                                                 <motion.a
                                                     variants={dropDownMotion}
-                                                    class="flex cursor-pointer flex-row items-center h-10 hover:bg-gray-100 border-l-2 border-transparent hover:border-primary-500 transition-colors"
+                                                    className="flex cursor-pointer flex-row items-center h-10 hover:bg-gray-100 border-l-2 border-transparent hover:border-primary-500 transition-colors"
                                                 >
-                                                    <div class="flex flex-row items-center text-sm font-medium">
+                                                    <div className="flex flex-row items-center text-sm font-medium">
                                                         <ChatBubbleBottomCenterTextIcon className='h-5 w-5 pointer-events-none mx-3' />
                                                         Support
                                                     </div>
@@ -142,9 +142,9 @@ const Topbar = ({title = "Dashboard"}) => {
                                                     logout()
                                                 }}
                                                 variants={dropDownMotion}
-                                                class="flex cursor-pointer flex-row items-center h-10 hover:bg-gray-100 border-l-2 border-transparent hover:border-primary-500 transition-colors"
+                                                className="flex cursor-pointer flex-row items-center h-10 hover:bg-gray-100 border-l-2 border-transparent hover:border-primary-500 transition-colors"
                                             >
-                                                <div class="flex flex-row items-center text-sm font-medium">
+                                                <div className="flex flex-row items-center text-sm font-medium">
                                                     <ArrowLeftOnRectangleIcon className='h-5 w-5 pointer-events-none mx-3' />
                                                     Logout
                                                 </div>

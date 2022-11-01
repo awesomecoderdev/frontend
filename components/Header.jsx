@@ -6,28 +6,30 @@ import { BellAlertIcon, BellIcon } from '@heroicons/react/24/outline';
 import { Transition } from '@headlessui/react'
 import { motion } from "framer-motion";
 import UseAuth from '../lib/useAuth';
+import Localstorage from '../lib/localstorage';
 
-const Header = () => {
-    const [user, setUser] = useState([]);
-    const [check, setCheck] = useState(false);
+const Header = ({authCheck}) => {
+    // const [check, setCheck] = useState(false)
+    // const router = useRouter()
+    // const {route} = router
+    // useEffect(() => {
+    //     if (typeof window !== 'undefined' ){
+    //         const {authCheck} = Localstorage()
+    //         setCheck(authCheck)
+    //     }
+    // });
+    // console.log("authChecks",authCheck);
 
-    useEffect(() => {
-        if (typeof window !== 'undefined' && localStorage.getItem("next_auth") && localStorage.getItem("next_auth") == "true") {
-            setCheck(true)
-            // const nextAuth = (localStorage.getItem("auth") && JSON.parse(atob(localStorage.getItem("auth"))).success ) ? JSON.parse(atob(localStorage.getItem("auth"))) : false;
-            // const auth = nextAuth && nextAuth.auth ? nextAuth.auth : false;
-            // setUser(auth)
-        }
-    }, []);
 
     return (
         <Fragment>
             <header className="relative w-full">
                 {/* <h1>Hellow {user.email}</h1> */}
-                {check ? <>you are login</> :<>You are not login</>}
+                {authCheck ? <>you are login</> :<>You are not login</>}
             </header>
         </Fragment>
     );
 }
+
 
 export default Header;

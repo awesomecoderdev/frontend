@@ -7,12 +7,6 @@ import request from '../lib/request';
 const Index = ({setNotification,posts}) => {
 
 
-    // console.log('====================================');
-    // console.log(posts);
-    // console.log('====================================');
-    // const {check, auth} = NextAuth()
-    // console.log("auth",auth);
-
   return (
     <Fragment>
         <section className="main w-full">
