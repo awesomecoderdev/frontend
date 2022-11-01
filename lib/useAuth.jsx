@@ -50,13 +50,10 @@ const UseAuth = ({middleware} = {}) => {
                 }
             }else{
                 localStorage.removeItem("auth")
-                localStorage.setItem("next_auth","false")
                 Cookies.set("next_auth","false")
                 setIsVerified(false);
-                // mutate()
-                // if(route != "/login"){
-                //     mutate() && router.push('/login')
-                // }
+                localStorage.setItem("next_auth","false")
+                // mutate() && router.push('/login')
             }
 
             return response;
@@ -110,12 +107,7 @@ const UseAuth = ({middleware} = {}) => {
     // logout
     const logout = async () => {
         const logout = await request.post('user/logout')
-        // .then(res=> console.log(res.data))
-        // Cookies.remove("next_session")
-        // console.log(logout);
         Cookies.set("next_auth","false")
-        localStorage.setItem("next_auth","false")
-        // localStorage.removeItem("auth")
         router.push('/') && mutate(null)
     }
 
