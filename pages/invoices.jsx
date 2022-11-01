@@ -9,7 +9,7 @@ const Invoices = ({auth}) => {
         <Fragment>
             <Topbar title='Invoices' />
             <div className="relative p-4">
-                <p>{JSON.stringify(auth)}</p>
+                {/* <p>{JSON.stringify(auth)}</p> */}
                 <h1>Hello , {name}, {email} {verified}</h1>
             </div>
         </Fragment>
