@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from 'react';
 import { Popover, Transition } from '@headlessui/react'
-import { ArrowLeftOnRectangleIcon, BellAlertIcon, BellIcon, ChatBubbleBottomCenterTextIcon, ChevronDownIcon, Cog6ToothIcon, PencilSquareIcon, UserCircleIcon } from '@heroicons/react/24/outline'
+import { ArrowLeftOnRectangleIcon, BellAlertIcon, BellIcon, ChatBubbleBottomCenterTextIcon, ChevronDownIcon, Cog6ToothIcon, EllipsisVerticalIcon, PencilSquareIcon, UserCircleIcon } from '@heroicons/react/24/outline'
 import Image from 'next/image';
 import Localstorage from '../lib/localstorage';
 import Link from 'next/link';
@@ -35,14 +35,25 @@ const Topbar = ({title = "Dashboard"}) => {
                     <h2 className='text-sm font-medium text-slate-600' >{title}</h2>
                 </div>
                 <div className="relative flex items-center">
-                    <button className="relative bg-gray-100 rounded-full p-2">
+                    {/* <button className="relative bg-gray-100 rounded-full p-2">
                         <BellIcon className="h-5 w-5 pointer-events-none" />
-                    </button>
+                    </button> */}
+                    {/* <button className="relative mx-3 w-9 h-9 rounded-full overflow-hidden " >
+                        <Image
+                            src="https://awesomecoder.dev/img/profile.jpg"
+                            alt="Profile"
+                            layout='fill'
+                            className='after: '
+                        />
+                    </button> */}
+                    {/* <button className="relative bg-gray-100 rounded-full p-2">
+                        <BellIcon className="h-5 w-5 pointer-events-none" />
+                    </button> */}
                     <div className="relative">
-                        <button
-                            onClick={()=> setDropDown(!dropDown)}
-                            className="relative mx-3 w-9 h-9 rounded-full overflow-hidden "
-                        >
+                        {/* <button onClick={()=> setDropDown(!dropDown)} className="relative bg-gray-100 rounded-full p-2">
+                            <EllipsisVerticalIcon className="h-5 w-5 pointer-events-none" />
+                        </button> */}
+                        <button onClick={()=> setDropDown(!dropDown)} className="relative mx-3 w-9 h-9 rounded-full overflow-hidden ring ring-offset-1 ring-primary-400" >
                             <Image
                                 src="https://awesomecoder.dev/img/profile.jpg"
                                 alt="Profile"
@@ -50,6 +61,8 @@ const Topbar = ({title = "Dashboard"}) => {
                                 className='after: '
                             />
                         </button>
+                        <span className="absolute h-3 w-3 rounded-full bg-red-500 -top-1 left-2 border-2 border-white"></span>
+
                         <Transition
                             as={Fragment}
                             show={dropDown}
@@ -90,7 +103,7 @@ const Topbar = ({title = "Dashboard"}) => {
                                     <div className="relative bg-white rounded-lg">
                                         <div className="grid gap-1 py-1">
                                             <div className=" border-b border-slate-300/50 px-4 py-3 text-sm font-medium text-gray-700">
-                                                <p className='w-full max-w-[15rem] truncate pr-1'>{name}</p>
+                                                <p className='w-full lg:max-w-[14rem] max-w-[12rem]  truncate pr-1'>{name}</p>
                                             </div>
                                             <Link href={"/profile"} passHref>
                                                 <motion.a

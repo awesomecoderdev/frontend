@@ -29,16 +29,16 @@ const sidebars = [
         href: '/invoices',
         icon: DocumentChartBarIcon,
     },
-    {
-        name: 'Settings',
-        href: '/settings',
-        icon: Cog6ToothIcon,
-    },
-    {
-        name: 'Support',
-        href: '/support',
-        icon: ChatBubbleBottomCenterTextIcon,
-    },
+    // {
+    //     name: 'Settings',
+    //     href: '/settings',
+    //     icon: Cog6ToothIcon,
+    // },
+    // {
+    //     name: 'Support',
+    //     href: '/support',
+    //     icon: ChatBubbleBottomCenterTextIcon,
+    // },
 ]
 
 
