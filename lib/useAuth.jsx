@@ -112,7 +112,7 @@ const UseAuth = ({middleware} = {}) => {
     }
 
     // auth
-    const auth = (user && user.auth) ? user.auth : [];
+    const auth = (user && user.auth) ? user.auth : false;
 
     // verified
     const verified = user ? user.verified : false;
