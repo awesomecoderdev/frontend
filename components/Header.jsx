@@ -10,7 +10,6 @@ import Localstorage from '../lib/localstorage';
 
 const Header = ({authCheck}) => {
     const [check, setCheck] = useState(authCheck)
-    const {auth} = UseAuth()
     // const router = useRouter()
     // const {route} = router
     useEffect(() => {
