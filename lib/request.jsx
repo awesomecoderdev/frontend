@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const request = axios.create({
-    baseURL: 'http://plagiarism.test/v1/',
+    baseURL: 'http://wpplagiarism.com/v1/',
     withCredentials : true,
     headers: {
         'X-Requested-With': 'XMLHttpRequest',
