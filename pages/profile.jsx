@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 import request from "../lib/request";
 import Localstorage from '../lib/localstorage';
+import Topbar from '../components/Topbar';
 
 export default function Profile() {
     const {name,email,verified} = Localstorage()
@@ -13,10 +14,11 @@ export default function Profile() {
 
     return (
         <>
-            <Head>
-                <title>ergodnc — Account</title>
-            </Head>
 
+            <Head>
+                <title>Profile | WP Plagiarism</title>
+            </Head>
+            <Topbar title='Profile' />
             <h1 className="text-3xl font-black mb-10">
                 Hello {name}!
             </h1>

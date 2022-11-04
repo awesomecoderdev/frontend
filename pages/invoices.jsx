@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import React, { Fragment } from 'react';
 import Topbar from '../components/Topbar';
 import Localstorage from '../lib/localstorage';
@@ -7,6 +8,9 @@ const Invoices = ({auth}) => {
 
     return (
         <Fragment>
+            <Head>
+                <title>Invoices | WP Plagiarism</title>
+            </Head>
             <Topbar title='Invoices' />
             <div className="relative p-4">
                 {/* <p>{JSON.stringify(auth)}</p> */}
