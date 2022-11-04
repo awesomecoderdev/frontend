@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useEffect, useRef, useState } from 'react';
 import { Popover, Transition } from '@headlessui/react'
 import { ArrowLeftOnRectangleIcon, BellAlertIcon, BellIcon, ChatBubbleBottomCenterTextIcon, ChevronDownIcon, Cog6ToothIcon, EllipsisVerticalIcon, PencilSquareIcon, UserCircleIcon } from '@heroicons/react/24/outline'
 import Image from 'next/image';
@@ -8,7 +8,7 @@ import { motion } from "framer-motion"
 import UseAuth from '../lib/useAuth';
 
 const Topbar = ({title = "Dashboard"}) => {
-    const [dropDown, setDropDown] = useState(false);
+    const [dropDown, setDropDown] = useState(false)
     const {name,email,user,verified,avatar} = Localstorage()
     const {logout} = UseAuth()
     const dropDownMotion = {
@@ -24,6 +24,18 @@ const Topbar = ({title = "Dashboard"}) => {
                 // repeat: Infinity,
                 // repeatDelay: 3
             }
+        }
+    }
+
+    useEffect(() => {
+        document.addEventListener('click',handelOutsideClick,true);
+    }, []);
+    const dropDownRef = useRef(null)
+    const handelOutsideClick = (e) => {
+        if(dropDownRef != null && dropDownRef.current?.contains(e.target)){
+            // console.log("Inside");
+        }else{
+            setDropDown(false)
         }
     }
 
@@ -53,7 +65,9 @@ const Topbar = ({title = "Dashboard"}) => {
                     {/* <button className="relative bg-gray-100 rounded-full p-2">
                         <BellIcon className="h-5 w-5 pointer-events-none" />
                     </button> */}
-                    <div className="relative">
+                    <div className="relative"
+                                ref={dropDownRef}
+                                >
                         {/* <button onClick={()=> setDropDown(!dropDown)} className="relative bg-gray-100 rounded-full p-2">
                             <EllipsisVerticalIcon className="h-5 w-5 pointer-events-none" />
                         </button> */}
@@ -104,7 +118,7 @@ const Topbar = ({title = "Dashboard"}) => {
                                 animate="visible"
                                 className="absolute z-10 right-0 mt-3 transform w-screen lg:max-w-[16rem] max-w-[14rem] transition ease-in-out duration-200 opacity-100 translate-y-0"
                             >
-                                <span className="absolute pointer-events-none h-3 w-3 bg-white -top-1.5 right-[1.42rem] z-20 rotate-45 border-t border-l border-slate-300/50"></span>{/* dropdonw cornder */}
+                                <span className="absolute pointer-events-none h-3 w-3 bg-white -top-1.5 right-[1.42rem] z-20 rotate-45 border-t border-l border-slate-300/50"></span>{/* dropdonw corner */}
                                 <div className="relative border border-slate-300/50 rounded-lg shadow-lg overflow-hidden">
                                     <div className="relative bg-white rounded-lg">
                                         <div className="grid gap-1 py-1">
@@ -115,6 +129,7 @@ const Topbar = ({title = "Dashboard"}) => {
                                                 <motion.a
                                                     variants={dropDownMotion}
                                                     className="flex cursor-pointer flex-row items-center h-10 hover:bg-gray-100 border-l-2 border-transparent hover:border-primary-500 transition-colors"
+                                                    onClick={()=> setDropDown(false)}
                                                 >
                                                     <div className="flex flex-row items-center text-sm font-medium">
                                                         <UserCircleIcon className='h-5 w-5 pointer-events-none mx-3' />
@@ -126,6 +141,7 @@ const Topbar = ({title = "Dashboard"}) => {
                                                 <motion.a
                                                     variants={dropDownMotion}
                                                     className="flex cursor-pointer flex-row items-center h-10 hover:bg-gray-100 border-l-2 border-transparent hover:border-primary-500 transition-colors"
+                                                    onClick={()=> setDropDown(false)}
                                                 >
                                                     <div className="relative flex flex-row items-center text-sm font-medium">
                                                         <BellIcon className='h-5 w-5 pointer-events-none mx-3' />
@@ -138,6 +154,7 @@ const Topbar = ({title = "Dashboard"}) => {
                                                 <motion.a
                                                     variants={dropDownMotion}
                                                     className="flex cursor-pointer flex-row items-center h-10 hover:bg-gray-100 border-l-2 border-transparent hover:border-primary-500 transition-colors"
+                                                    onClick={()=> setDropDown(false)}
                                                 >
                                                     <div className="flex flex-row items-center text-sm font-medium">
                                                         <Cog6ToothIcon className='h-5 w-5 pointer-events-none mx-3' />
@@ -149,6 +166,7 @@ const Topbar = ({title = "Dashboard"}) => {
                                                 <motion.a
                                                     variants={dropDownMotion}
                                                     className="flex cursor-pointer flex-row items-center h-10 hover:bg-gray-100 border-l-2 border-transparent hover:border-primary-500 transition-colors"
+                                                    onClick={()=> setDropDown(false)}
                                                 >
                                                     <div className="flex flex-row items-center text-sm font-medium">
                                                         <ChatBubbleBottomCenterTextIcon className='h-5 w-5 pointer-events-none mx-3' />
@@ -158,6 +176,7 @@ const Topbar = ({title = "Dashboard"}) => {
                                             </Link>
                                             <motion.button
                                                 onClick={() => {
+                                                    setDropDown(false)
                                                     logout()
                                                 }}
                                                 variants={dropDownMotion}
