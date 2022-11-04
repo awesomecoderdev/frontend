@@ -48,7 +48,7 @@ const Sidebar = ({children, ...props}) => {
     const {logout} = UseAuth()
 
     return (
-        <div className="relative bg-slate-700 lg:w-80 w-auto min-h-screen h-full border-r border-slate-300/50 " >
+        <div className="relative bg- lg:w-80 w-auto min-h-screen h-full border-r border-slate-300/50 " >
             <div className="relative w-full ">
                 <Logo className="relative w-full flex items-center lg:justify-start justify-center lg:ml-4 ml-0 md:p-4 md:bp-0 p-2" />
             </div>
