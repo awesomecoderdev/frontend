@@ -20,7 +20,7 @@ const Notifications = () => {
         //     }, 1000);
         // }, 8000);
         // console.log("setNotification triggered");
-    }, [notification]);
+    }, [notification,setShowNotification]);
 
     // close notifications
     // const closeNotification = () => {

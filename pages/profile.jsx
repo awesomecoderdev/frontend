@@ -3,6 +3,7 @@ import Link from 'next/link'
 import request from "../lib/request";
 import Localstorage from '../lib/localstorage';
 import Topbar from '../components/Topbar';
+import Image from 'next/image';
 
 export default function Profile() {
     const {name,email,verified} = Localstorage()
@@ -30,7 +31,7 @@ export default function Profile() {
             {reservations ? reservations.map((reservation, index) => (
                 <div key={reservation.office.id} className={`flex ${index + 1 == reservations.length ? '' : 'pb-10 mb-10 border-b'}`}>
                     <div className="w-1/3 h-56 relative overflow-hidden rounded-lg">
-                        <img src={reservation.office.featured_image.path} className="object-cover w-full h-full"></img>
+                        <Image alt='Profile' src={reservation.office.featured_image.path} layout="fill" className="object-cover w-full h-full" />
                     </div>
 
 

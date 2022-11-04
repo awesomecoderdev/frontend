@@ -85,7 +85,7 @@ const VerifyEmail = () => {
         };
         verifyEmail();
         closeNotification()
-    }, [router]);
+    }, []);
 
     const sendVerificationEmail = async () => {
         setLoading(true)

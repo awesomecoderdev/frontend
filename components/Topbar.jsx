@@ -72,14 +72,14 @@ const Topbar = ({title = "Dashboard"}) => {
                             <EllipsisVerticalIcon className="h-5 w-5 pointer-events-none" />
                         </button> */}
                         <button onClick={()=> setDropDown(!dropDown)} className="relative mx-3 w-9 h-9 rounded-full overflow-hidden ring ring-offset-1 ring-primary-400" >
-                            {/* <Image
+                            <Image
                                 // src="https://awesomecoder.dev/img/profile.jpg"
                                 src={avatar}
                                 alt="Profile"
                                 layout='fill'
                                 className='after: '
-                            /> */}
-                            <img src={avatar} alt="Profile" className='after: ' />
+                            />
+                            {/* <img src={avatar} alt="Profile" className='after: ' /> */}
                         </button>
                         <span className="absolute h-3 w-3 rounded-full bg-red-500 -top-1 left-2 border-2 border-white"></span>
 
