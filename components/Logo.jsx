@@ -5,9 +5,10 @@ const Logo = ({...props}) => {
     return (
         <Fragment>
             <div {...props}>
-                <div className="relative w-8 h-10">
+                <div className="relative w-10 h-10">
                     <Image
-                        src="/favicon-32x32.png"
+                        // src="/favicon-32x32.png"
+                        src="/logo.png"
                         alt="Plagiarism"
                         layout='fill'
                     />

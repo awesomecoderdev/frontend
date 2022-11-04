@@ -7,6 +7,7 @@ import { Transition } from '@headlessui/react'
 import { motion } from "framer-motion";
 import UseAuth from '../lib/useAuth';
 import Localstorage from '../lib/localstorage';
+import Logo from './Logo';
 
 const Header = ({authCheck}) => {
     const [check, setCheck] = useState(authCheck)
@@ -27,7 +28,7 @@ const Header = ({authCheck}) => {
 
     return (
         <Fragment>
-            <header className="relative w-full">
+            {/* <header className="relative w-full">
                 <nav className="block w-full rounded-xl shadow-md backdrop-saturate-200 backdrop-blur-2xl bg-opacity-80 border border-white/80 bg-white text-gray-500 mx-auto max-w-screen-xl py-2 px-4 lg:px-8 lg:py-4">
                     <div className="container mx-auto flex items-center justify-between text-blue-gray-900">
                         <a href="#" className="block antialiased font-sans text-sm leading-normal text-inherit mr-4 cursor-pointer py-1.5 font-normal">
@@ -50,6 +51,43 @@ const Header = ({authCheck}) => {
                                 <span>Login</span>
                             </button>
                         }
+                    </div>
+                </nav>
+            </header> */}
+            <header className="relative w-full bg-slate-50">
+                <nav className="block w-full rounded-xl backdrop-saturate-200 backdrop-blur-2xl  text-slate-500 mx-auto max-w-screen-xl py-2 px-4 lg:px-8 ">
+                    <div className="container mx-auto flex items-center justify-between text-blue-gray-900">
+                        <a href="#" className="block antialiased font-sans text-sm leading-normal text-inherit mr-4 cursor-pointer py-1.5 font-normal">
+                        <div className="relative w-14 h-14">
+                            <Image
+                                // src="/favicon-32x32.png"
+                                src="/logo.png"
+                                alt="Plagiarism"
+                                layout='fill'
+                            />
+                        </div>
+                        </a>
+                        <ul className="hidden items-center gap-6 lg:flex">
+                            <li className="block antialiased font-sans text-sm leading-normal text-inherit p-1 font-normal"><a className="flex items-center" href="#">Pages</a></li>
+                            <li className="block antialiased font-sans text-sm leading-normal text-inherit p-1 font-normal"><a className="flex items-center" href="#">Account</a></li>
+                            <li className="block antialiased font-sans text-sm leading-normal text-inherit p-1 font-normal"><a className="flex items-center" href="#">Blocks</a></li>
+                            <li className="block antialiased font-sans text-sm leading-normal text-inherit p-1 font-normal"><a className="flex items-center" href="#">Docs</a></li>
+                        </ul>
+                        <div className="relative">
+                            {check ?
+                                <Link href={"/dashboard"} passHref>
+                                    <a className="text-sm text-primary-400 block border rounded  border-primary-500 px-4 py-2" type="button">
+                                        <span>Dashboard</span>
+                                    </a>
+                                </Link>
+                            :
+                                <Link href={"/login"} passHref>
+                                    <a className="text-sm text-primary-400 block border rounded  border-primary-500 px-4 py-2" type="button">
+                                        <span>Login</span>
+                                    </a>
+                                </Link>
+                            }
+                        </div>
                     </div>
                 </nav>
             </header>
