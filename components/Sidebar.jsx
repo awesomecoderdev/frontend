@@ -33,16 +33,16 @@ const sidebars = [
         icon: DocumentChartBarIcon,
         break: false,
     },
-    // {
-    //     name: 'Settings',
-    //     href: '/settings',
-    //     icon: Cog6ToothIcon,
-    // },
-    // {
-    //     name: 'Support',
-    //     href: '/support',
-    //     icon: ChatBubbleBottomCenterTextIcon,
-    // },
+    {
+        name: 'Settings',
+        href: '/settings',
+        icon: Cog6ToothIcon,
+    },
+    {
+        name: 'Support',
+        href: '/support',
+        icon: ChatBubbleBottomCenterTextIcon,
+    },
 ]
 
 
