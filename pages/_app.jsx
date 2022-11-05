@@ -14,7 +14,7 @@ import Notifications from '../components/Notifications';
 import DashboardContents from '../components/DashboardContents';
 import Sidebar from '../components/Sidebar';
 import request from '../lib/request';
-import { protectedRoutes } from "../lib/controller"
+import { disabledFooter, disabledHeader, protectedRoutes } from "../lib/controller"
 import AppContext, { AppContextProvider } from '../context/AppContext';
 
 const App = ({ Component, pageProps,authCheck}) => {
@@ -23,12 +23,6 @@ const App = ({ Component, pageProps,authCheck}) => {
     const router = useRouter()
     const {route} = router
     const [checkAuth, setCheckAuth] = useState(false);
-    const disabledHeader = [
-        "/login",
-        "/verify-email/[[...params]]",
-        "/404"
-    ]
-
     // console.log("route",route);
     return (
         <Fragment>
@@ -131,7 +125,7 @@ const App = ({ Component, pageProps,authCheck}) => {
                         {/* </motion.Fragment> */}
                     </AnimatePresence>
                 }
-                {disabledHeader.includes(route) || protectedRoutes.includes(route) ? <></> :<Footer />}
+                {disabledFooter.includes(route) || disabledFooter.includes(route) ? <></> :<Footer />}
             </AppContextProvider>
         </Fragment>
     );

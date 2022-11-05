@@ -96,7 +96,7 @@ const Login = ({setNotification}) => {
                             <h1 className="sm:block hidden font-semibold mx-2 text-transparent bg-clip-text bg-gradient-to-r from-primary-500 to-primary-800 ">WP Plagiarism</h1>
                         </div>
                         <div className="relative">
-                            <Link href={"/join"} >
+                            <Link href={"/signup"} >
                                 <a className="border-slate-300 border rounded-lg px-3 py-2.5 focus-visible:outline-none ml-auto text-sm font-medium hover:underline text-transparent bg-clip-text bg-gradient-to-r to-primary-800 from-slate-900">
                                     Create account
                                 </a>
@@ -202,7 +202,7 @@ const Login = ({setNotification}) => {
                                         <span>
                                         Don&rsquo;t have an account?
                                         </span>
-                                        <Link href={"/join"} passHref>
+                                        <Link href={"/signup"} passHref>
                                             <a className=" focus-visible:outline-none ml-auto text-sm font-medium hover:underline text-transparent bg-clip-text bg-gradient-to-r from-slate-700 to-primary-700 ">
                                                 Create account
                                             </a>

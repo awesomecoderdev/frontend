@@ -9,6 +9,20 @@ export const protectedRoutes = [
     "/profile",
 ]
 
+export const disabledHeader = [
+    "/login",
+    "/signup",
+    "/verify-email/[[...params]]",
+    "/404"
+]
+
+export const disabledFooter = [
+    "/login",
+    "/signup",
+    "/verify-email/[[...params]]",
+    "/404"
+]
+
 export const notAllowedRoutes = [
     "/login",
 ]
@@ -17,4 +31,6 @@ export const notAllowedRoutes = [
 export default {
     protectedRoutes,
     notAllowedRoutes,
+    disabledHeader,
+    disabledFooter,
 }
