@@ -112,8 +112,7 @@ const UseAuth = ({middleware} = {}) => {
     // logout
     const logout = async () => {
         const logout = await request.post('user/logout')
-        mutate(null)
-        router.push('/')
+        router.push('/') && mutate(null)
     }
 
     // auth

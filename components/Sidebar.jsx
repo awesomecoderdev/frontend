@@ -13,21 +13,25 @@ const sidebars = [
         name: 'Dashboard',
         href: '/dashboard',
         icon: HomeIcon,
+        break: false,
     },
     {
         name: 'Websites',
         href: '/websites',
         icon: LinkIcon,
+        break: true,
     },
     {
         name: 'Payments',
         href: '/payments',
         icon: BanknotesIcon,
+        break: false,
     },
     {
         name: 'Invoices',
         href: '/invoices',
         icon: DocumentChartBarIcon,
+        break: false,
     },
     // {
     //     name: 'Settings',
@@ -77,33 +81,35 @@ const Sidebar = ({children, ...props}) => {
                     animate="visible"
                 >
                     {sidebars.map((item) => (
-                        <Link
-                            key={item.name}
-                            href={item.href}
-                            passHref={true}
-                        >
-                            <motion.a
-                                className={` ${route == item.href ? "bg-slate-100 " : "bg-slate-50/10"} transition md:p-3 p-2 duration-150 relative cursor-pointer hover:bg-slate-100 rounded-lg flex lg:justify-start justify-center items-center`}
-                                variants={{
-                                    hidden: {
-                                        x: -10,
-                                        opacity: 0
-                                    },
-                                    visible: {
-                                        x: 0,
-                                        opacity: 1,
-                                        transition: {
-                                            stiffness: 260,
-                                            // repeat: Infinity,
-                                            // repeatDelay: 3
+                        <Fragment key={item.name} >
+                            <Link
+                                href={item.href}
+                                passHref={true}
+                            >
+                                <motion.a
+                                    className={` ${route == item.href ? "lg:bg-slate-100 bg-slate-200" : "lg:bg-slate-50/10 bg-slate-100/70"} transition md:p-3 p-2 duration-150 relative cursor-pointer hover:bg-slate-100 rounded-lg flex lg:justify-start justify-center items-center`}
+                                    variants={{
+                                        hidden: {
+                                            x: -10,
+                                            opacity: 0
+                                        },
+                                        visible: {
+                                            x: 0,
+                                            opacity: 1,
+                                            transition: {
+                                                stiffness: 260,
+                                                // repeat: Infinity,
+                                                // repeatDelay: 3
+                                            }
                                         }
-                                    }
-                                }}
-                                >
-                                    <item.icon className="h-5 w-5 pointer-events-none" aria-hidden="true" />
-                                    <span className="text-xs lg:block hidden ml-3 pointer-events-none text-slate-500">{item.name}</span>
-                            </motion.a>
-                        </Link>
+                                    }}
+                                    >
+                                        <item.icon className="h-5 w-5 pointer-events-none" aria-hidden="true" />
+                                        <span className="text-xs lg:block hidden ml-3 pointer-events-none text-slate-500">{item.name}</span>
+                                </motion.a>
+                            </Link>
+                            {item.break ? <hr /> : ""}
+                        </Fragment>
                     ))}
                     {/* <motion.a
                         className={`bg-slate-50/10 transition md:p-3 p-2 duration-150 relative cursor-pointer hover:bg-slate-100 rounded-lg flex lg:justify-start justify-center items-center`}
