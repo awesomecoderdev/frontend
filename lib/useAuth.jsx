@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react'
 import useSWR from 'swr'
 import request from './request'
 import Cookies from 'js-cookie'
-import { useRouter } from 'next/router'
+import Router, { useRouter } from 'next/router'
 import Notifications from '../components/Notifications'
 import { notAllowedRoutes, protectedRoutes } from "../lib/controller"
 
@@ -21,7 +21,7 @@ const UseAuth = ({middleware} = {}) => {
 
         if(user && user.success == true){
             if(notAllowedRoutes.includes(route)){
-                mutate() && router.push('/dashboard')
+                mutate() && Router.push('/dashboard')
             }
         }
 
@@ -86,7 +86,7 @@ const UseAuth = ({middleware} = {}) => {
                     }
 
                     mutate()
-                    router.push('/dashboard')
+                    Router.push('/dashboard')
                 }else{
                     localStorage.setItem("next_auth","false")
                     Cookies.set("next_auth","false")
@@ -112,7 +112,7 @@ const UseAuth = ({middleware} = {}) => {
     // logout
     const logout = async () => {
         const logout = await request.post('user/logout')
-        router.push('/') && mutate(null)
+        Router.push('/') && mutate(null)
     }
 
     // auth

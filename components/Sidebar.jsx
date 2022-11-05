@@ -19,7 +19,7 @@ const sidebars = [
         name: 'Websites',
         href: '/websites',
         icon: LinkIcon,
-        break: true,
+        break: false,
     },
     {
         name: 'Payments',

@@ -216,7 +216,6 @@ const Login = ({setNotification}) => {
                 </div>
             </motion.div>
         </Fragment>
-
     );
 }
 

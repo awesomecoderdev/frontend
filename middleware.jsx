@@ -17,6 +17,10 @@ export default function middleware(req, res){
         return NextResponse.redirect(`${process.env.BASE_URL}/dashboard`);
     }
 
+    if(auth && auth == "true" && url.includes('/signup')){
+        return NextResponse.redirect(`${process.env.BASE_URL}/dashboard`);
+    }
+
     if(auth && auth == "false" && redirectLogin== true){
         return NextResponse.redirect(`${process.env.BASE_URL}/login`);
     }
