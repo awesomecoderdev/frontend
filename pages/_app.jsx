@@ -125,7 +125,7 @@ const App = ({ Component, pageProps,authCheck}) => {
                         {/* </motion.Fragment> */}
                     </AnimatePresence>
                 }
-                {disabledFooter.includes(route) || disabledFooter.includes(route) ? <></> :<Footer />}
+                {protectedRoutes.includes(route) || disabledFooter.includes(route) ? <></> :<Footer />}
             </AppContextProvider>
         </Fragment>
     );
