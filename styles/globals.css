@@ -8,5 +8,5 @@ html {
 }
 
 #__next{
-    @apply relative antialiased flex flex-col items-center;
+    @apply relative w-full antialiased flex flex-col items-center;
 }

@@ -34,7 +34,7 @@ const App = ({ Component, pageProps,authCheck}) => {
         <Fragment>
             <AppContextProvider>
                 <Notifications  />
-                {disabledHeader.includes(route) || protectedRoutes.includes(route) ? <></> :<Header authCheck={authCheck} />}
+                {disabledHeader.includes(route) || protectedRoutes.includes(route) ? <></> :<Header router={router} authCheck={authCheck} />}
                 { protectedRoutes.includes(route) ?
                     <AnimatePresence>
                         {isLoading ?

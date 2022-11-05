@@ -65,23 +65,20 @@ const Topbar = ({title = "Dashboard"}) => {
                     {/* <button className="relative bg-gray-100 rounded-full p-2">
                         <BellIcon className="h-5 w-5 pointer-events-none" />
                     </button> */}
-                    <div className="relative"
-                                ref={dropDownRef}
-                                >
+                    <div className="relative"ref={dropDownRef}>
                         {/* <button onClick={()=> setDropDown(!dropDown)} className="relative bg-gray-100 rounded-full p-2">
                             <EllipsisVerticalIcon className="h-5 w-5 pointer-events-none" />
                         </button> */}
-                        <button onClick={()=> setDropDown(!dropDown)} className="relative mx-3 w-9 h-9 rounded-full overflow-hidden ring ring-offset-1 ring-primary-400" >
-                            <Image
-                                // src="https://awesomecoder.dev/img/profile.jpg"
-                                src={avatar}
-                                alt="Profile"
-                                layout='fill'
-                                className='after: '
-                            />
-                            {/* <img src={avatar} alt="Profile" className='after: ' /> */}
+                            <button onClick={()=> setDropDown(!dropDown)} className="relative mx-3 w-10 h-10 rounded-full overflow-hidden border border-primary-500 bg-slate-200" >
+                            {
+                                avatar ?
+                                <Image src={avatar} alt="Profile" layout='fill' className='after: ' /> :
+                                <h2 className='text-slate-600 font-semibold text-sm ' >
+                                    {name ? name.slice(0,1) : ""}
+                                </h2>
+                            }
                         </button>
-                        <span className="absolute h-3 w-3 rounded-full bg-red-500 -top-1 left-2 border-2 border-white"></span>
+                        <span className="absolute h-3 w-3 rounded-full bg-red-500 left-3 border-2 border-white"></span>
 
                         <Transition
                             as={Fragment}

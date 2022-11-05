@@ -13,8 +13,9 @@ const Logo = ({...props}) => {
                         layout='fill'
                     />
                 </div>
-                <h1 className="font-semibold mx-2 lg:block hidden">Plagiarism</h1>
+                <h1 className="font-semibold mx-2 lg:block hidden text-transparent bg-clip-text bg-gradient-to-r from-primary-500 to-primary-800 ">WP Plagiarism</h1>
             </div>
+
         </Fragment>
     );
 }

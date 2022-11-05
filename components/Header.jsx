@@ -12,18 +12,21 @@ import Logo from './Logo';
 const Header = ({authCheck}) => {
     const [check, setCheck] = useState(authCheck)
     const router = useRouter()
-    const {route} = router
+    const {route,query} = router
+    // const logout = query.logout && query.logout == "true" ? true : false;
+
+    // if(logout){
+    //     router.push("/")
+    // }
+
     useEffect(() => {
         if (typeof window !== 'undefined' ){
             const {authCheck} = Localstorage()
             setCheck(authCheck)
         }
     },[route]);
-    // console.log("authChecks",authCheck);
 
-    // useEffect(() => {
-    //     setCheck(auth && true)
-    // }, [auth]);
+
 
 
     return (
@@ -76,14 +79,14 @@ const Header = ({authCheck}) => {
                         <div className="relative">
                             {check ?
                                 <Link href={"/dashboard"} passHref>
-                                    <a className="text-sm text-primary-400 block border rounded  border-primary-500 px-4 py-2" type="button">
-                                        <span>Dashboard</span>
+                                    <a className="border-slate-300 border rounded-lg px-5 py-2.5 focus-visible:outline-none ml-auto text-sm font-medium text-slate-500 hover:underline text-transparent bg-clip-text bg-gradient-to-r to-primary-800 from-slate-900">
+                                        Dashboard
                                     </a>
                                 </Link>
                             :
                                 <Link href={"/login"} passHref>
-                                    <a className="text-sm text-primary-400 block border rounded  border-primary-500 px-4 py-2" type="button">
-                                        <span>Login</span>
+                                    <a className="border-slate-300 border rounded-lg px-5 py-2.5 focus-visible:outline-none ml-auto text-sm font-medium text-slate-500 hover:underline text-transparent bg-clip-text bg-gradient-to-r to-primary-800 from-slate-900">
+                                        Login
                                     </a>
                                 </Link>
                             }

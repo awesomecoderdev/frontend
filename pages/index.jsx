@@ -4,6 +4,7 @@ import Image from 'next/image'
 import UseAuth from '../lib/useAuth';
 import request from '../lib/request';
 import Hero from '../components/Hero';
+import { useRouter } from 'next/router';
 
 const Index = ({setNotification,posts}) => {
 
@@ -27,6 +28,28 @@ const Index = ({setNotification,posts}) => {
 //         },
 //     }
 // }
+
+export async function getServerSideProps(context) {
+	const {query}= context;
+	console.log(context);
+
+
+	let response =  {
+		props:{
+
+		},
+	}
+
+	if(query.logout){
+		response.redirect = {
+			permanent: false,
+			destination: "/",
+		}
+	}
+	console.log("query:", query);
+	// console.log("cookies:", cookies);
+	return response;
+}
 
 
 export default Index;

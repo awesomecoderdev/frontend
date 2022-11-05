@@ -52,7 +52,7 @@ const Sidebar = ({children, ...props}) => {
             <div className="relative w-full ">
                 <Logo className="relative w-full flex items-center lg:justify-start justify-center lg:ml-4 ml-0 md:p-4 md:bp-0 p-2" />
             </div>
-            <div className="relative pt-0 md:p-4 p-2 text-slate-700">
+            <div className="relative pt-0 md:p-4 p-2 text-slate-700 ">
                 <motion.nav className=" relative grid space-y-3 font-semibold font-inter "
                     variants={{
                         hidden: {
@@ -75,7 +75,6 @@ const Sidebar = ({children, ...props}) => {
                     }}
                     initial="hidden"
                     animate="visible"
-
                 >
                     {sidebars.map((item) => (
                         <Link
@@ -132,61 +131,6 @@ const Sidebar = ({children, ...props}) => {
                     </motion.a> */}
                 </motion.nav>
             </div>
-            {/* <div className="absolute bottom-0 w-full p-4 text-slate-700">
-                <motion.nav className=" relative grid space-y-3 font-semibold font-inter "
-                    variants={{
-                        hidden: {
-                            opacity: 1, scale: 0
-                        },
-                        visible: {
-                            opacity: 1,
-                            scale: 1,
-                            transition: {
-                                delayChildren: 0.05,
-                                staggerChildren: 0.07,
-                            }
-
-                        }
-                    }}
-                    transition={{
-                        type: "spring",
-                        stiffness: 260,
-                        damping: 20
-                    }}
-                    initial="hidden"
-                    animate="visible"
-
-                >
-                 <Link href={'/profile'} passHref={true}>
-                            <motion.a
-                                className={` ${route == "profile" ? "bg-slate-100" : "bg-slate-50/10"} transition-colors duration-150 relative cursor-pointer hover:bg-slate-100 p-3 rounded-lg flex justify-start items-center`}
-                                variants={{
-                                    hidden: {
-                                        x: -10,
-                                        opacity: 0
-                                    },
-                                    visible: {
-                                        x: 0,
-                                        opacity: 1,
-                                        transition: {
-                                            stiffness: 260,
-                                            // repeat: Infinity,
-                                            // repeatDelay: 3
-                                        }
-                                    }
-                                }}
-                                >
-                                <div className="relative h-10 w-10 rounded-md overflow-hidden">
-                                    <Image
-                                        src={"https://awesomecoder.dev/img/profile.jpg"}
-                                        alt="Profile"
-                                        layout='fill'
-                                    />
-                                </div>
-                            </motion.a>
-                    </Link>
-                </motion.nav>
-            </div> */}
         </div>
     );
 }

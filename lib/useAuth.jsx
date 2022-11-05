@@ -83,7 +83,11 @@ const UseAuth = ({middleware} = {}) => {
                         setIsVerified(false);
                         Cookies.set("verified","false")
                     }
-                    router.push('/dashboard') && mutate()
+
+                    setTimeout(() => {
+                        mutate()
+                        router.push('/dashboard')
+                    }, 1000);
                 }else{
                     localStorage.setItem("next_auth","false")
                     Cookies.set("next_auth","false")
@@ -108,7 +112,10 @@ const UseAuth = ({middleware} = {}) => {
     const logout = async () => {
         const logout = await request.post('user/logout')
         Cookies.set("next_auth","false")
-        router.push('/') && mutate(null)
+        setTimeout(() => {
+            mutate(null)
+            router.push('/?logout=true')
+        }, 1000);
     }
 
     // auth
