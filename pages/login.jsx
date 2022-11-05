@@ -83,7 +83,7 @@ const Login = ({setNotification}) => {
                 exit="exit"
                 className="relative w-full"
             >
-                <div className="relative w-full max-w-7xl my-5 lg:px-10 px-4 mx-auto">
+                <div className="relative w-full max-w-7xl my-5 lg:px-10 px-4 mx-auto text-slate-500 ">
                     <div className="relative  p-2 sm:p-4 md:p-6 w-full flex items-center justify-between">
                         <div className="relative flex items-center justify-start">
                             <div className="relative w-10 h-10">
@@ -97,7 +97,7 @@ const Login = ({setNotification}) => {
                         </div>
                         <div className="relative">
                             <Link href={"/join"} >
-                                <a className="border-slate-300 border rounded-lg px-3 py-2.5 focus-visible:outline-none ml-auto text-sm font-medium text-slate-500 hover:underline text-transparent bg-clip-text bg-gradient-to-r to-primary-800 from-slate-900">
+                                <a className="border-slate-300 border rounded-lg px-3 py-2.5 focus-visible:outline-none ml-auto text-sm font-medium hover:underline text-transparent bg-clip-text bg-gradient-to-r to-primary-800 from-slate-900">
                                     Create account
                                 </a>
                             </Link>
@@ -110,7 +110,7 @@ const Login = ({setNotification}) => {
                                 <form className="p-0" onSubmit={(e) => {handleSubmit(e)}}>
                                     <h2 className='text-3xl font-black my-2 text-slate-500' ><span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-700 to-primary-700  opacity-80">Log In.</span></h2>
                                     <p className='text-sm font-medium my-3 text-slate-500' ><span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-700 to-slate-700 ">Welcome back!</span>  Please enter your details to access your account.</p>
-                                    <div className="relative">
+                                    <div className="relative text-slate-500 ">
                                         <span onClick={setOauth} className="w-full cursor-pointer flex justify-center items-center mt-4 text-gray-600 transition-colors duration-200 transform border rounded-lg  hover:bg-gray-50 ">
                                             <div className="px-4 py-2 pointer-events-none">
                                                 <svg className="w-5 h-5" viewBox="0 0 40 40">
@@ -128,7 +128,7 @@ const Login = ({setNotification}) => {
                                                         fill="#1976D2" />
                                                 </svg>
                                             </div>
-                                            <span className="py-3 text-sm font-bold text-center focus-visible:outline-none text-slate-500 hover:underline text-transparent bg-clip-text bg-gradient-to-r from-slate-700 to-primary-900 opacity-80">Log in with Google</span>
+                                            <span className="py-3 text-sm font-bold text-center focus-visible:outline-none hover:underline text-transparent bg-clip-text bg-gradient-to-r from-slate-700 to-primary-900 opacity-80">Log in with Google</span>
                                         </span>
                                     </div>
                                     <div className="relative flex justify-between items-center py-2.5 ">
@@ -166,7 +166,7 @@ const Login = ({setNotification}) => {
                                             {errors.password ? errors.password : ""}
                                         </p>
                                     </div>
-                                    <div className="flex items-start my-2">
+                                    <div className="flex items-start my-2 text-slate-500">
                                         <div className="flex items-start">
                                             <div className="flex items-center h-5">
                                                 <input
@@ -181,7 +181,7 @@ const Login = ({setNotification}) => {
                                                 Remember me
                                             </label>
                                         </div>
-                                        <a href="#" className="focus-visible:outline-none ml-auto text-sm font-medium text-slate-500 hover:underline text-transparent bg-clip-text bg-gradient-to-r from-slate-700 to-primary-700">
+                                        <a href="#" className="focus-visible:outline-none ml-auto text-sm font-medium  hover:underline text-transparent bg-clip-text bg-gradient-to-r from-slate-700 to-primary-700">
                                             Lost Password?
                                         </a>
                                     </div>
@@ -203,7 +203,7 @@ const Login = ({setNotification}) => {
                                         Don&rsquo;t have an account?
                                         </span>
                                         <Link href={"/join"} passHref>
-                                            <a className=" focus-visible:outline-none ml-auto text-sm font-medium text-slate-500 hover:underline text-transparent bg-clip-text bg-gradient-to-r from-slate-700 to-primary-700 ">
+                                            <a className=" focus-visible:outline-none ml-auto text-sm font-medium hover:underline text-transparent bg-clip-text bg-gradient-to-r from-slate-700 to-primary-700 ">
                                                 Create account
                                             </a>
                                         </Link>

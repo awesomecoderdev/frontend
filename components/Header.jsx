@@ -57,7 +57,7 @@ const Header = ({authCheck}) => {
                     </div>
                 </nav>
             </header> */}
-            <header className="relative w-full bg-slate-50">
+            <header className="relative w-full bg-slate-50 text-slate-500">
                 <nav className="block w-full rounded-xl backdrop-saturate-200 backdrop-blur-2xl  text-slate-500 mx-auto max-w-screen-xl py-2 px-4 lg:px-8 ">
                     <div className="container mx-auto flex items-center justify-between text-blue-gray-900">
                         <a href="#" className="block antialiased font-sans text-sm leading-normal text-inherit mr-4 cursor-pointer py-1.5 font-normal">
@@ -79,13 +79,13 @@ const Header = ({authCheck}) => {
                         <div className="relative">
                             {check ?
                                 <Link href={"/dashboard"} passHref>
-                                    <a className="border-slate-300 border rounded-lg px-5 py-2.5 focus-visible:outline-none ml-auto text-sm font-medium text-slate-500 hover:underline text-transparent bg-clip-text bg-gradient-to-r to-primary-800 from-slate-900">
+                                    <a className="border-slate-300 border rounded-lg px-5 py-2.5 focus-visible:outline-none ml-auto text-sm font-medium  hover:underline text-transparent bg-clip-text bg-gradient-to-r to-primary-800 from-slate-900">
                                         Dashboard
                                     </a>
                                 </Link>
                             :
                                 <Link href={"/login"} passHref>
-                                    <a className="border-slate-300 border rounded-lg px-5 py-2.5 focus-visible:outline-none ml-auto text-sm font-medium text-slate-500 hover:underline text-transparent bg-clip-text bg-gradient-to-r to-primary-800 from-slate-900">
+                                    <a className="border-slate-300 border rounded-lg px-5 py-2.5 focus-visible:outline-none ml-auto text-sm font-medium hover:underline text-transparent bg-clip-text bg-gradient-to-r to-primary-800 from-slate-900">
                                         Login
                                     </a>
                                 </Link>
@@ -97,6 +97,5 @@ const Header = ({authCheck}) => {
         </Fragment>
     );
 }
-
 
 export default Header;

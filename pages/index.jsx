@@ -29,27 +29,29 @@ const Index = ({setNotification,posts}) => {
 //     }
 // }
 
-export async function getServerSideProps(context) {
-	const {query}= context;
-	console.log(context);
+// export async function getServerSideProps(context) {
+// 	const {query, req : {cookies}}= context;
+// 	let response =  {
+// 		props: {},
+// 	}
+// 	// console.log(context);
+
+// 	if(cookies.next_auth){
+// 		response.props.next_auth = cookies.next_auth === "true" ? true : false ;
+// 	}
 
 
-	let response =  {
-		props:{
-
-		},
-	}
-
-	if(query.logout){
-		response.redirect = {
-			permanent: false,
-			destination: "/",
-		}
-	}
-	console.log("query:", query);
-	// console.log("cookies:", cookies);
-	return response;
-}
+// 	if(query.logout){
+// 		response.redirect = {
+// 			permanent: false,
+// 			destination: "/",
+// 		}
+// 	}
+// 	// console.log("query:", query);
+// 	// console.log("cookies:", cookies);
+// 	console.log("response:", response);
+// 	return response;
+// }
 
 
 export default Index;

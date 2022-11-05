@@ -6,6 +6,7 @@ import Localstorage from '../lib/localstorage';
 import Link from 'next/link';
 import { motion } from "framer-motion"
 import UseAuth from '../lib/useAuth';
+import Cookies from 'js-cookie';
 
 const Topbar = ({title = "Dashboard"}) => {
     const [dropDown, setDropDown] = useState(false)
@@ -54,22 +55,8 @@ const Topbar = ({title = "Dashboard"}) => {
                     {/* <button className="relative bg-gray-100 rounded-full p-2">
                         <BellIcon className="h-5 w-5 pointer-events-none" />
                     </button> */}
-                    {/* <button className="relative mx-3 w-9 h-9 rounded-full overflow-hidden " >
-                        <Image
-                            src="https://awesomecoder.dev/img/profile.jpg"
-                            alt="Profile"
-                            layout='fill'
-                            className='after: '
-                        />
-                    </button> */}
-                    {/* <button className="relative bg-gray-100 rounded-full p-2">
-                        <BellIcon className="h-5 w-5 pointer-events-none" />
-                    </button> */}
                     <div className="relative"ref={dropDownRef}>
-                        {/* <button onClick={()=> setDropDown(!dropDown)} className="relative bg-gray-100 rounded-full p-2">
-                            <EllipsisVerticalIcon className="h-5 w-5 pointer-events-none" />
-                        </button> */}
-                            <button onClick={()=> setDropDown(!dropDown)} className="relative mx-3 w-10 h-10 rounded-full overflow-hidden border border-primary-500 bg-slate-200" >
+                        <button onClick={()=> setDropDown(!dropDown)} className="relative mx-3 w-9 h-9 rounded-full overflow-hidden  border-primary-500 bg-slate-200" >
                             {
                                 avatar ?
                                 <Image src={avatar} alt="Profile" layout='fill' className='after: ' /> :
@@ -173,6 +160,7 @@ const Topbar = ({title = "Dashboard"}) => {
                                             </Link>
                                             <motion.button
                                                 onClick={() => {
+                                                    Cookies.set("next_auth","false")
                                                     setDropDown(false)
                                                     logout()
                                                 }}

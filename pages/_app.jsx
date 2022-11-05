@@ -123,7 +123,7 @@ const App = ({ Component, pageProps,authCheck}) => {
                                 },
                                 exitState: {
                                     opacity: 0,
-                                    // clipPath: "polygon(50% 0, 50% 0, 50% 100%, 50% 100%)",
+                                    clipPath: "polygon(50% 0, 50% 0, 50% 100%, 50% 100%)",
                                 },
                             }}
                         > */}
