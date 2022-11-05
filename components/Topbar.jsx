@@ -61,7 +61,7 @@ const Topbar = ({title = "Dashboard"}) => {
                                 avatar ?
                                 <Image src={avatar} alt="Profile" layout='fill' className='after: ' /> :
                                 <h2 className='text-slate-600 font-semibold text-sm ' >
-                                    {name ? name.slice(0,1) : ""}
+                                    {name ? name.trim().slice(0,1) : ""}
                                 </h2>
                             }
                         </button>

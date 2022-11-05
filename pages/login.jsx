@@ -83,7 +83,7 @@ const Login = ({setNotification}) => {
                 exit="exit"
                 className="relative w-full"
             >
-                <div className="relative w-full max-w-7xl my-5 lg:px-10 px-4 mx-auto text-slate-500 ">
+                <div className="relative w-full max-w-7xl md:py-1 sm:py-5 py-1 lg:px-10 px-4 mx-auto text-slate-500 ">
                     <div className="relative  p-2 sm:p-4 md:p-6 w-full flex items-center justify-between">
                         <div className="relative flex items-center justify-start">
                             <div className="relative w-10 h-10">
