@@ -40,9 +40,9 @@ const Topbar = ({title = "Dashboard"}) => {
         }
     }
 
-    console.log('====================================');
-    console.log("user",user);
-    console.log('====================================');
+    // console.log('====================================');
+    // console.log("user",user);
+    // console.log('====================================');
 
 
     return (

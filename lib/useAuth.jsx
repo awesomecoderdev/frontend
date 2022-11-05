@@ -54,7 +54,7 @@ const UseAuth = ({middleware} = {}) => {
                 setIsVerified(false);
                 localStorage.setItem("next_auth","false")
                 // mutate() && router.push('/login')
-                router.push('/login')
+                // router.push('/login')
             }
 
             return response;
@@ -85,7 +85,7 @@ const UseAuth = ({middleware} = {}) => {
                         Cookies.set("verified","false")
                     }
 
-                    // mutate()
+                    mutate()
                     router.push('/dashboard')
                 }else{
                     localStorage.setItem("next_auth","false")
@@ -105,6 +105,8 @@ const UseAuth = ({middleware} = {}) => {
                 // setErrors(Object.values(error.response.data.errors).flat())
                 setLoading(false)
             })
+
+
     }
 
     // logout
