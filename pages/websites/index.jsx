@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import React, { Fragment } from 'react';
-import Topbar from '../components/Topbar';
-import Localstorage from '../lib/localstorage';
+import Topbar from '../../components/Topbar';
+import Localstorage from '../../lib/localstorage';
 
 const Websites = () => {
     const {name,email,user,verified} = Localstorage()
