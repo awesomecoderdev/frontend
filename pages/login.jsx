@@ -18,7 +18,7 @@ const Login = ({setNotification}) => {
     const [remember, setRemember] = useState(false)
     const [errors, setErrors] = useState({});
     const [loading, setLoading] = useState(false);
-    const {login, isLoading, user} = UseAuth()
+    const {login, csrf,isLoading, user} = UseAuth()
     // const [oauth, setOauth] = useState("#");
 
     // useEffect(() => {
@@ -34,14 +34,23 @@ const Login = ({setNotification}) => {
     // }, []);
 
     const setOauth = () => {
+        csrf()
         request.post("oauth/google").then(res => {
             const response = res.data
             if(response.success){
                 // setOauth(response.oauth)
                 window.location = response.oauth
+            }else{
+                setNotification({
+                    success: "false",
+                    title: "Unauthenticated!",
+                    message: "Something went wrong. Please try again after sometimes.",
+                })
+                closeNotification()
             }
         })
     }
+
 
     const handleSubmit = (e) => {
         e.preventDefault();

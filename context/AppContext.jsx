@@ -9,7 +9,7 @@ export const AppContextProvider = ({children}) => {
         // message: "Hello world"
     });
 
-    const closeNotification = (time = 10) => {
+    const closeNotification = (time = 5) => {
         setTimeout(() => {
             setShowNotification(false)
             setTimeout(() => {

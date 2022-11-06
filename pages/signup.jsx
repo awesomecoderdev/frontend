@@ -21,13 +21,22 @@ const Signup = () => {
     const [passwordConfirmation, setPasswordConfirmation] = useState('')
     const [errors, setErrors] = useState({});
     const [loading, setLoading] = useState(false);
+    const {csrf} = UseAuth()
 
     const setOauth = () => {
+        csrf()
         request.post("oauth/google").then(res => {
             const response = res.data
             if(response.success){
                 // setOauth(response.oauth)
                 window.location = response.oauth
+            }else{
+                setNotification({
+                    success: "false",
+                    title: "Unauthenticated!",
+                    message: "Something went wrong. Please try again after sometimes.",
+                })
+                closeNotification()
             }
         })
     }
@@ -35,6 +44,7 @@ const Signup = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         setLoading(true);
+        csrf()
         request.post("/user/register",{
             first_name : fname,
             last_name : lname,
@@ -50,18 +60,28 @@ const Signup = () => {
                     title: "Congratulations!",
                     message: "Your account has been registered.",
                 })
+                closeNotification();
                 setTimeout(() => {
-                    closeNotification();
-                    setTimeout(() => {
-                        Router.push("/dashboard")
-                    }, 1000);
-                }, 3000);
+                    Router.push("/dashboard")
+                }, 1000);
             }else{
+                setNotification({
+                    success: "false",
+                    title: "Unauthenticated!",
+                    message: "Something went wrong. Please try again after sometimes.",
+                })
                 setErrors(response.errors ? response.errors : [])
+                closeNotification();
             }
             console.log(response)
         }).catch(err => {
             console.log(err)
+            setNotification({
+                success: "false",
+                title: "Unauthenticated!",
+                message: "Something went wrong. Please try again after sometimes.",
+            })
+            closeNotification();
         });
         setLoading(false);
     }
