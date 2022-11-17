@@ -3,10 +3,10 @@
 @tailwind utilities;
 
 html {
-    scroll-behavior: smooth;
-    @apply font-primary;
+	scroll-behavior: smooth;
+	@apply font-primary;
 }
 
-#__next{
-    @apply relative w-full antialiased flex flex-col items-center;
+#__next {
+	@apply relative w-full antialiased flex flex-col items-center;
 }
