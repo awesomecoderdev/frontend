@@ -25,20 +25,11 @@ const Login = () => {
 
 	// const [oauth, setOauth] = useState("#");
 
-	// useEffect(() => {
-	//     request.post("oauth/google").then(res => {
-	//         const response = res.data
-	//         if(response.success){
-	//             setOauth(response.oauth)
-	//         }
-	//         console.log('====================================');
-	//         console.log(res.data);
-	//         console.log('====================================');
-	//     })
-	// }, []);
+	useEffect(() => {
+		csrf();
+	}, []);
 
 	const setOauth = () => {
-		csrf();
 		request.post("oauth/google").then((res) => {
 			const response = res.data;
 			if (response.success) {
