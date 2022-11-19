@@ -50,6 +50,12 @@ const VerifyEmail = () => {
 								message: response.message,
 							});
 							Cookies.set("verified", "true");
+
+							setTimeout(() => {
+								closeNotification();
+
+								router.push("/login");
+							}, 2000);
 						} else {
 							setIsValid(false);
 							if (response.status === 429) {
