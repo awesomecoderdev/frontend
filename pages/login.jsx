@@ -10,8 +10,9 @@ import Logo from "../components/Logo";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
+import AppContext from "../context/AppContext";
 
-const Login = ({ setNotification }) => {
+const Login = () => {
 	const router = useRouter();
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
@@ -19,6 +20,9 @@ const Login = ({ setNotification }) => {
 	const [errors, setErrors] = useState({});
 	const [loading, setLoading] = useState(false);
 	const { login, csrf, isLoading, user } = UseAuth();
+	const { notification, setNotification, closeNotification } =
+		useContext(AppContext);
+
 	// const [oauth, setOauth] = useState("#");
 
 	// useEffect(() => {
