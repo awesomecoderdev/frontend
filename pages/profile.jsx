@@ -1,59 +1,172 @@
-import Head from 'next/head'
-import Link from 'next/link'
+import Head from "next/head";
+import Link from "next/link";
 import request from "../lib/request";
-import Localstorage from '../lib/localstorage';
-import Topbar from '../components/Topbar';
-import Image from 'next/image';
+import Localstorage from "../lib/localstorage";
+import Topbar from "../components/Topbar";
+import Image from "next/image";
 
 export default function Profile() {
-    const {name,email,verified} = Localstorage()
-    // const {data: reservations, error, mutate} = useSWR('/reservations', () =>
-    //     request.get('/reservations')
-    //         .then(response => response.data.data),
-    // )
-    const reservations = [];
+	const { name, email, user, verified } = Localstorage();
 
-    return (
-        <>
+	return (
+		<>
+			<Head>
+				<title>Profile | WP Plagiarism</title>
+			</Head>
+			<Topbar title="Profile" />
 
-            <Head>
-                <title>Profile | WP Plagiarism</title>
-            </Head>
-            <Topbar title='Profile' />
-            <h1 className="text-3xl font-black mb-10">
-                Hello {name}!
-            </h1>
+			<div className="relative p-5 h-full w-full ">
+				<form action="#" method="POST">
+					<div className=" shadow sm:rounded-md">
+						<div className="bg-white px-4 py-5 sm:p-6">
+							<div className="grid grid-cols-6 gap-6">
+								<div className="col-span-6 sm:col-span-3">
+									<label
+										htmlFor="first-name"
+										className="block text-sm font-medium text-gray-700"
+									>
+										First name
+									</label>
+									<input
+										type="text"
+										name="first-name"
+										id="first-name"
+										value={user?.first_name}
+										autoComplete="given-name"
+										className="mt-1 block w-full transition p-2.5 rounded-md border-slate-200 border focus-visible:border-slate-400  focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+									/>
+								</div>
 
-            <div className="mb-10">
-                <span>Here is a list of your previous reservations!</span>
-            </div>
+								<div className="col-span-6 sm:col-span-3">
+									<label
+										htmlFor="last-name"
+										className="block text-sm font-medium text-gray-700"
+									>
+										Last name
+									</label>
+									<input
+										type="text"
+										name="last-name"
+										id="last-name"
+										value={user?.last_name}
+										autoComplete="family-name"
+										className="mt-1 block w-full transition p-2.5 rounded-md border-slate-200 border focus-visible:border-slate-400  focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+									/>
+								</div>
 
-            {reservations ? reservations.map((reservation, index) => (
-                <div key={reservation.office.id} className={`flex ${index + 1 == reservations.length ? '' : 'pb-10 mb-10 border-b'}`}>
-                    <div className="w-1/3 h-56 relative overflow-hidden rounded-lg">
-                        <Image alt='Profile' src={reservation.office.featured_image.path} layout="fill" className="object-cover w-full h-full" />
-                    </div>
+								<div className="col-span-6 sm:col-span-3">
+									<label
+										htmlFor="email"
+										className="block text-sm font-medium text-gray-700"
+									>
+										Email address
+									</label>
+									<input
+										type="text"
+										name="email"
+										id="email"
+										disabled="true"
+										value={user?.email}
+										autoComplete="email"
+										className="mt-1 block w-full transition p-2.5 rounded-md border-slate-200 border focus-visible:border-slate-400  focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+									/>
+								</div>
 
+								<div className="col-span-6 sm:col-span-3">
+									<label
+										htmlFor="country"
+										className="block text-sm font-medium text-gray-700"
+									>
+										Country
+									</label>
+									<select
+										id="country"
+										name="country"
+										autoComplete="country-name"
+										className="mt-1 block w-full p-2.5 rounded-md border border-gray-300 bg-white focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+									>
+										<option>United States</option>
+										<option>Canada</option>
+										<option>Mexico</option>
+									</select>
+								</div>
 
-                    <div className="w-full pl-14">
-                        <div className="flex justify-between items-center mb-6">
-                            <h1 className="text-2xl font-bold">{reservation.office.title}</h1>
-                            <span className="block font-semibold">Total ${reservation.price / 100}</span>
-                        </div>
-                        <p className="mb-5">
-                            <span className="text-gray-600 text-sm uppercase">
-                                From <strong>{reservation.start_date.split('T')[0]}</strong> To <strong>{reservation.end_date.split('T')[0]}</strong>
-                            </span>
-                        </p>
-                        <p className="leading-loose mb-5">
-                            {reservation.office.description}
-                        </p>
-                        <Link href={"/offices/" + reservation.office.id}>
-                            <a className="text-purple-600 font-bold">More details...</a>
-                        </Link>
-                    </div>
-                </div>
-            )) : ''}
-        </>
-    )
+								<div className="col-span-6">
+									<label
+										htmlFor="street-address"
+										className="block text-sm font-medium text-gray-700"
+									>
+										Street address
+									</label>
+									<input
+										type="text"
+										name="street-address"
+										id="street-address"
+										autoComplete="street-address"
+										className="mt-1 block w-full transition p-2.5 rounded-md border-slate-200 border focus-visible:border-slate-400  focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+									/>
+								</div>
+
+								<div className="col-span-6 sm:col-span-6 lg:col-span-2">
+									<label
+										htmlFor="city"
+										className="block text-sm font-medium text-gray-700"
+									>
+										City
+									</label>
+									<input
+										type="text"
+										name="city"
+										id="city"
+										autoComplete="address-level2"
+										className="mt-1 block w-full transition p-2.5 rounded-md border-slate-200 border focus-visible:border-slate-400  focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+									/>
+								</div>
+
+								<div className="col-span-6 sm:col-span-3 lg:col-span-2">
+									<label
+										htmlFor="region"
+										className="block text-sm font-medium text-gray-700"
+									>
+										State / Province
+									</label>
+									<input
+										type="text"
+										name="region"
+										id="region"
+										autoComplete="address-level1"
+										className="mt-1 block w-full transition p-2.5 rounded-md border-slate-200 border focus-visible:border-slate-400  focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+									/>
+								</div>
+
+								<div className="col-span-6 sm:col-span-3 lg:col-span-2">
+									<label
+										htmlFor="postal-code"
+										className="block text-sm font-medium text-gray-700"
+									>
+										ZIP / Postal code
+									</label>
+									<input
+										type="text"
+										name="postal-code"
+										id="postal-code"
+										autoComplete="postal-code"
+										className="mt-1 block w-full transition p-2.5 rounded-md border-slate-200 border focus-visible:border-slate-400  focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+									/>
+								</div>
+							</div>
+						</div>
+						<div className="bg-gray-50 px-4 py-3 text-right sm:px-6">
+							<button
+								type="submit"
+								className="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+							>
+								Save
+							</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</>
+	);
 }

@@ -194,7 +194,7 @@ const Login = () => {
 												errors.email
 													? "border-red-500"
 													: "border-slate-300"
-											} transition bg-gray-50 border focus-visible:outline-none focus-visible:border-slate-400 text-gray-900 text-sm rounded-lg focus:ring-slate-500 focus:border-slate-500 block w-full p-2.5 `}
+											} transition  border focus-visible:outline-none focus-visible:border-slate-400 text-gray-900 text-sm rounded-lg focus:ring-slate-500 focus:border-slate-500 block w-full p-2.5 `}
 											placeholder="Enter your email"
 											required=""
 										/>
@@ -227,7 +227,7 @@ const Login = () => {
 												errors.password
 													? "border-red-500"
 													: "border-slate-300"
-											} transition bg-gray-50 border focus-visible:outline-none focus-visible:border-slate-400 text-gray-900 text-sm rounded-lg focus:ring-slate-500 focus:border-slate-500 block w-full p-2.5 `}
+											} transition border focus-visible:outline-none focus-visible:border-slate-400 text-gray-900 text-sm rounded-lg focus:ring-slate-500 focus:border-slate-500 block w-full p-2.5 `}
 											placeholder="Password"
 											required=""
 										/>
