@@ -9,6 +9,7 @@ import Topbar from "../components/Topbar";
 import Localstorage from "../lib/localstorage";
 import request from "../lib/request";
 import UseAuth from "../lib/useAuth";
+import Image from "next/image";
 
 const Notifications = () => {
 	const { name, email, user, verified } = Localstorage();
@@ -45,7 +46,7 @@ const Notifications = () => {
 			</Head>
 			<Topbar title="Notifications" />
 			<div className="relative p-5">
-				<div calssName="gird">
+				<div className="gird">
 					{notifications.map((notification) => {
 						console.log(notification);
 						return (
@@ -60,12 +61,11 @@ const Notifications = () => {
 											} } relative flex items-center w-full border border-slate-100 py-3 mb-3 rounded-md`}
 										>
 											<button className="relative mx-3 w-9 h-9 rounded-full overflow-hidden  border-primary-500 bg-slate-200">
-												{user.avatar ? (
+												{user.avatar !== null ? (
 													<Image
-														src={avatar}
+														src={user.avatar}
 														alt="Profile"
 														layout="fill"
-														className="after: "
 													/>
 												) : (
 													<h2 className="text-slate-600 font-semibold text-sm ">
