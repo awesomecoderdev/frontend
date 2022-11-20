@@ -106,7 +106,7 @@ const Login = () => {
 						</div>
 						<div className="relative">
 							<Link href={"/signup"}>
-								<a className="border-slate-300 border rounded-lg px-3 py-2.5 focus-visible:outline-none ml-auto text-sm font-medium hover:underline text-transparent bg-clip-text bg-gradient-to-r to-primary-800 from-slate-900">
+								<a className="border-slate-300 border rounded-lg px-3 py-2.5 ml-auto text-sm font-medium hover:underline text-transparent bg-clip-text bg-gradient-to-r to-primary-800 from-slate-900">
 									Create account
 								</a>
 							</Link>
@@ -162,7 +162,7 @@ const Login = () => {
 													/>
 												</svg>
 											</div>
-											<span className="py-3 text-sm font-bold text-center focus-visible:outline-none hover:underline text-transparent bg-clip-text bg-gradient-to-r from-slate-700 to-primary-900 opacity-80">
+											<span className="py-3 text-sm font-bold text-center hover:underline text-transparent bg-clip-text bg-gradient-to-r from-slate-700 to-primary-900 opacity-80">
 												Log in with Google
 											</span>
 										</span>
@@ -197,6 +197,7 @@ const Login = () => {
 											} transition  border focus-visible:outline-none focus-visible:border-slate-400 text-gray-900 text-sm rounded-lg focus:ring-slate-500 focus:border-slate-500 block w-full p-2.5 `}
 											placeholder="Enter your email"
 											required=""
+											autoComplete="email"
 										/>
 										<p
 											className={`${
@@ -230,6 +231,7 @@ const Login = () => {
 											} transition border focus-visible:outline-none focus-visible:border-slate-400 text-gray-900 text-sm rounded-lg focus:ring-slate-500 focus:border-slate-500 block w-full p-2.5 `}
 											placeholder="Password"
 											required=""
+											autoComplete="password"
 										/>
 										<p
 											className={`${
@@ -273,7 +275,7 @@ const Login = () => {
 									</div>
 									<button
 										type="submit"
-										className="my-4 focus-visible:outline-none w-full flex justify-center items-center text-white bg-primary-500 hover:bg-primary-600 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+										className="my-4 w-full flex justify-center items-center text-white bg-primary-500 hover:bg-primary-600 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
 									>
 										{loading ? (
 											<>
@@ -308,7 +310,7 @@ const Login = () => {
 											Don&rsquo;t have an account?
 										</span>
 										<Link href={"/signup"} passHref>
-											<a className=" focus-visible:outline-none ml-auto text-sm font-medium hover:underline text-transparent bg-clip-text bg-gradient-to-r from-slate-700 to-primary-700 ">
+											<a className=" ml-auto text-sm font-medium hover:underline text-transparent bg-clip-text bg-gradient-to-r from-slate-700 to-primary-700 ">
 												Create account
 											</a>
 										</Link>

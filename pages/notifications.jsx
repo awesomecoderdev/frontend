@@ -1,9 +1,9 @@
 import Head from "next/head";
 import React, { Fragment, useEffect, useState } from "react";
 import {
-	UserCircleIcon,
 	EnvelopeOpenIcon,
 	EnvelopeIcon,
+	ChatBubbleBottomCenterTextIcon,
 } from "@heroicons/react/24/outline";
 import Topbar from "../components/Topbar";
 import Localstorage from "../lib/localstorage";
@@ -39,16 +39,40 @@ const Notifications = () => {
 		});
 	}, []);
 
+	const markAsReadNotification = (id) => {
+		console.log("Mark", id);
+		request
+			.post("user/marknotification", {
+				id: id,
+			})
+			.then((res) => {
+				const response = res.data;
+				if (response.success) {
+					console.log("====================================");
+					console.log(response.data);
+					console.log("====================================");
+					setNotifications(response.data);
+				} else {
+					setNotification({
+						success: "false",
+						title: "Unauthenticated!",
+						message:
+							"Something went wrong. Please try again after sometimes.",
+					});
+					closeNotification();
+				}
+			});
+	};
+
 	return (
 		<Fragment>
 			<Head>
-				<title>Payments | WP Plagiarism</title>
+				<title>Notifications | WP Plagiarism</title>
 			</Head>
 			<Topbar title="Notifications" />
-			<div className="relative p-5">
+			<div className="relative p-5 w-auto max-h-[90vh] overflow-x-hidden ">
 				<div className="gird">
 					{notifications.map((notification) => {
-						console.log(notification);
 						return (
 							<Fragment key={notification.id}>
 								{notification.data.message ? (
@@ -68,12 +92,8 @@ const Notifications = () => {
 														layout="fill"
 													/>
 												) : (
-													<h2 className="text-slate-600 font-semibold text-sm ">
-														{name
-															? name
-																	.trim()
-																	.slice(0, 1)
-															: ""}
+													<h2 className="text-slate-600 font-semibold text-sm flex justify-center items-center ">
+														<ChatBubbleBottomCenterTextIcon className="h-4 w-4" />
 													</h2>
 												)}
 											</button>
@@ -88,7 +108,14 @@ const Notifications = () => {
 											{notification.read_at !== null ? (
 												<EnvelopeOpenIcon className="w-5  h-5 absolute right-4" />
 											) : (
-												<EnvelopeIcon className="w-5 h-5 cursor-pointer absolute right-4" />
+												<EnvelopeIcon
+													onClick={(e) =>
+														markAsReadNotification(
+															notification.id
+														)
+													}
+													className="w-5 h-5 cursor-pointer absolute right-4"
+												/>
 											)}
 										</div>
 									</Fragment>

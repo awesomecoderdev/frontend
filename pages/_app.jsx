@@ -159,7 +159,7 @@ App.getInitialProps = async (context) => {
 		cookies && cookies.next_auth && cookies.next_auth == "true"
 			? true
 			: false;
-	console.log("authCheck", authCheck);
+	// console.log("authCheck", authCheck);
 	return { authCheck: authCheck };
 };
 
