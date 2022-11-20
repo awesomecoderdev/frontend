@@ -60,21 +60,20 @@ const Topbar = ({ title = "Dashboard" }) => {
 					</h2>
 				</div>
 				<div className="relative flex items-center">
-					{/* <button className="relative bg-gray-100 rounded-full p-2">
-                        <BellIcon className="h-5 w-5 pointer-events-none" />
-                    </button> */}
 					<div className="relative" ref={dropDownRef}>
 						<div className="relative flex">
-							<button className="flex cursor-pointer rounded-full justify-center items-center h-10 w-10  transition-colors">
-								<div className="relative flex flex-row items-center text-sm font-medium">
-									<BellIcon className="h-5 w-5 pointer-events-none mx-3" />
-									{notificationAlert ? (
-										<span className="absolute h-2 w-2 rounded-full bg-red-500 top-0 left-6"></span>
-									) : (
-										""
-									)}
-								</div>
-							</button>
+							<Link href={"/notifications"} passHref={true}>
+								<a className="flex cursor-pointer rounded-full hover:bg-slate-50 justify-center items-center h-10 w-10  transition-colors">
+									<div className="relative flex flex-row items-center text-sm font-medium">
+										<BellIcon className="h-5 w-5 pointer-events-none mx-3" />
+										{notificationAlert ? (
+											<span className="absolute h-2 w-2 rounded-full bg-red-500 top-0 left-6"></span>
+										) : (
+											""
+										)}
+									</div>
+								</a>
+							</Link>
 							<button
 								onClick={() => setDropDown(!dropDown)}
 								className="relative mx-3 w-9 h-9 rounded-full overflow-hidden  border-primary-500 bg-slate-200"
