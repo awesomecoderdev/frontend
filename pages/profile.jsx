@@ -15,7 +15,7 @@ export default function Profile() {
 			</Head>
 			<Topbar title="Profile" />
 
-			<div className="relative p-5 h-full w-full ">
+			<div className="relative lg:p-4 p-2 w-full max-h-[90vh] overflow-x-hidden overflow-y-scroll">
 				<form action="#" method="POST">
 					<div className=" shadow sm:rounded-md">
 						<div className="bg-white px-4 py-5 sm:p-6">

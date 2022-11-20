@@ -97,7 +97,7 @@ const App = ({ Component, pageProps, authCheck }) => {
 								exit="exit"
 								className="main w-full  "
 							>
-								<div className="flex w-full h-full">
+								<div className="relative flex justify-between w-full h-fit">
 									<Sidebar />
 									<DashboardContents>
 										<Component

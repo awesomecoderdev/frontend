@@ -23,9 +23,6 @@ const Notifications = () => {
 		request.post("user/notifications").then((res) => {
 			const response = res.data;
 			if (response.success) {
-				console.log("====================================");
-				console.log(response.data);
-				console.log("====================================");
 				setNotifications(response.data);
 			} else {
 				setNotification({
@@ -48,9 +45,6 @@ const Notifications = () => {
 			.then((res) => {
 				const response = res.data;
 				if (response.success) {
-					console.log("====================================");
-					console.log(response.data);
-					console.log("====================================");
 					setNotifications(response.data);
 				} else {
 					setNotification({
@@ -70,19 +64,19 @@ const Notifications = () => {
 				<title>Notifications | WP Plagiarism</title>
 			</Head>
 			<Topbar title="Notifications" />
-			<div className="relative p-5 w-auto max-h-[90vh] overflow-x-hidden ">
-				<div className="gird">
+			<div className="relative lg:p-4 p-2 w-full max-h-[90vh] overflow-x-hidden overflow-y-scroll">
+				<div className="relative">
 					{notifications.map((notification) => {
 						return (
 							<Fragment key={notification.id}>
 								{notification.data.message ? (
 									<Fragment>
 										<div
-											className={` { ${
+											className={`${
 												notification.read_at === null
 													? "bg-gray-50"
 													: "bg-white"
-											} } relative flex items-center w-full border border-slate-100 py-3 mb-3 rounded-md`}
+											} relative flex items-center w-full border border-slate-100 py-3 mb-3 rounded-md`}
 										>
 											<button className="relative mx-3 w-9 h-9 rounded-full overflow-hidden  border-primary-500 bg-slate-200">
 												{user.avatar !== null ? (

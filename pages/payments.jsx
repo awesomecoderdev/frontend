@@ -12,7 +12,7 @@ const Payments = () => {
 				<title>Payments | WP Plagiarism</title>
 			</Head>
 			<Topbar title="Payments" />
-			<div className="relative p-4">
+			<div className="relative lg:p-4 p-2 w-full max-h-[90vh] overflow-x-hidden overflow-y-scroll">
 				<h1>
 					Hello , {name}, {email} {verified}
 				</h1>

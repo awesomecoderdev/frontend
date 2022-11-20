@@ -40,6 +40,7 @@ const UseAuth = ({ middleware } = {}) => {
 	} = useSWR("/user", () =>
 		request.post("/user").then((res) => {
 			const response = res.data;
+			// console.log(response);
 			if (response.success) {
 				localStorage.setItem("auth", btoa(JSON.stringify(response)));
 				localStorage.setItem("next_auth", "true");
