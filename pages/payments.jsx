@@ -109,6 +109,29 @@ const Payments = () => {
 				</div>
 
 				<div className="relative pt-4">
+					<div
+						className={` h-10 px-3 bg-white relative flex justify-between items-center w-full border mb-3 border-slate-100 rounded-md`}
+					>
+						<p className="text-xs  w-1/5 font-semibold  text-start text-slate-500">
+							# Transaction ID
+						</p>
+
+						<p className="text-xs text-start ml-3  w-1/5 font-semibold text-slate-500">
+							Amount
+						</p>
+
+						<p className="text-xs text-center  w-1/5 font-semibold text-slate-500">
+							Payment Method
+						</p>
+
+						<p className="text-xs text-center  w-1/5 font-semibold text-slate-500">
+							Invoice Number
+						</p>
+
+						<p className="text-xs text-center  w-1/5 font-semibold text-slate-500">
+							Payment Date
+						</p>
+					</div>
 					{payments.map((payment) => {
 						return (
 							<Fragment key={payment.id}>
@@ -117,9 +140,9 @@ const Payments = () => {
 										payment.read_at === null
 											? "bg-primary-50/50"
 											: "bg-white"
-									} relative flex items-center w-full border mb-3 border-slate-100 rounded-md`}
+									} relative flex items-center pr-2 justify-between w-full border mb-3 border-slate-100 rounded-md`}
 								>
-									<button className="relative flex justify-center items-center m-3 w-15 h-15 rounded-full text-primary-500 ">
+									<div className="relative w-1/5  flex justify-start items-center m-3 w-15 h-15 rounded-full text-primary-500 ">
 										<h2 className="text-slate-600 font-semibold text-sm flex justify-center items-center ">
 											<CreditCardIcon className="h-4 w-4" />
 										</h2>
@@ -133,53 +156,41 @@ const Payments = () => {
 													: "bg-blue-400"
 											} absolute -left-1 top-0 h-2.5 w-2.5 border-white border-2  rounded-full`}
 										></span>
-									</button>
-									<div className="relative md:pl-0 pl-2 h-full overflow-hidden pr-10">
-										<p className="text-xs truncate w-20 font-semibold text-slate-500/80">
+
+										<p className="text-xs truncate pl-3 w-24 font-semibold text-slate-500/80">
 											#{payment?.transaction_id}
 										</p>
 									</div>
+									<p
+										className={` ${
+											payment.status == "success"
+												? "text-green-400"
+												: payment.status == "canceled"
+												? "text-red-400"
+												: "text-primary-400"
+										} text-xs truncate w-1/5 text-start font-semibold `}
+									>
+										{`$${payment?.amount} USD`}
+									</p>
 
-									<div className="relative flex items-center justify-evenly w-full md:pl-0 pl-2 h-full overflow-hidden pr-10">
-										<p
-											className={` ${
-												payment.status == "success"
-													? "text-green-400"
-													: payment.status ==
-													  "canceled"
-													? "text-red-400"
-													: "text-primary-400"
-											} text-xs truncate w-20 text-center font-semibold `}
-										>
-											${payment?.amount} USD
-										</p>
+									<p className="text-xs text-center w-1/5 font-semibold text-slate-500/80 flex justify-center items-center">
+										<CreditCardIcon className="h-6 w-6 pr-2" />
+										{payment.method
+											? payment.method
+											: "Card"}
+									</p>
 
-										<h1 className="text-xs font-semibold text-slate-500/80">
-											{payment.created_at
-												? payment.created_at
-												: ""}
-										</h1>
-									</div>
-									<div className="relative flex items-center justify-evenly w-full md:pl-0 pl-2 h-full overflow-hidden pr-10">
-										<p
-											className={` ${
-												payment.status == "success"
-													? "text-green-400"
-													: payment.status ==
-													  "canceled"
-													? "text-red-400"
-													: "text-primary-400"
-											} text-xs truncate w-20 text-center font-semibold `}
-										>
-											${payment?.amount} USD
-										</p>
+									<p className="text-xs text-center  w-1/5 font-semibold text-slate-500/80">
+										{payment.invoice_id
+											? payment.invoice_id
+											: "Invoice Number"}
+									</p>
 
-										<h1 className="text-xs font-semibold text-slate-500/80">
-											{payment.created_at
-												? payment.created_at
-												: ""}
-										</h1>
-									</div>
+									<p className="text-xs text-center  w-1/5 font-semibold text-slate-500/80">
+										{payment.created_at
+											? payment.created_at
+											: ""}
+									</p>
 								</div>
 							</Fragment>
 						);
