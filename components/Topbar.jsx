@@ -18,10 +18,11 @@ import { motion } from "framer-motion";
 import UseAuth from "../lib/useAuth";
 import Cookies from "js-cookie";
 
-const Topbar = ({ title = "Dashboard" }) => {
+const Topbar = ({ title = "Dashboard", alert = null }) => {
 	const [dropDown, setDropDown] = useState(false);
 	const { name, email, user, verified, avatar, notificationAlert } =
 		Localstorage();
+	const [showAlert, setShowAlert] = useState(notificationAlert);
 	const { logout } = UseAuth();
 	const dropDownMotion = {
 		hidden: {
@@ -41,7 +42,9 @@ const Topbar = ({ title = "Dashboard" }) => {
 
 	useEffect(() => {
 		document.addEventListener("click", handelOutsideClick, true);
-	}, []);
+		setShowAlert(alert);
+	}, [alert]);
+
 	const dropDownRef = useRef(null);
 	const handelOutsideClick = (e) => {
 		if (dropDownRef != null && dropDownRef.current?.contains(e.target)) {
@@ -66,7 +69,7 @@ const Topbar = ({ title = "Dashboard" }) => {
 								<a className="flex cursor-pointer rounded-full hover:bg-slate-50 justify-center items-center h-10 w-10  transition-colors">
 									<div className="relative flex flex-row items-center text-sm font-medium">
 										<BellIcon className="h-5 w-5 pointer-events-none mx-3" />
-										{notificationAlert ? (
+										{showAlert ? (
 											<span className="absolute h-2 w-2 rounded-full bg-red-500 top-0 left-6"></span>
 										) : (
 											""

@@ -18,6 +18,7 @@ const Notifications = () => {
 	const [notificationCount, setNotificationCount] = useState(0);
 	const [notifications, setNotifications] = useState([]);
 	const [unread, setUnread] = useState(false);
+	const [showAlert, setShowAlert] = useState(null);
 
 	useEffect(() => {
 		csrf();
@@ -48,6 +49,7 @@ const Notifications = () => {
 				const response = res.data;
 				if (response.success) {
 					setNotificationCount(response.data.length);
+					setShowAlert(response.alert);
 
 					if (unread) {
 						const unreadNotifications = response.data.filter(
@@ -81,6 +83,7 @@ const Notifications = () => {
 			if (response.success) {
 				setNotificationCount(response.data.length);
 				setNotifications(response.data);
+				setShowAlert(response.alert);
 			} else {
 				setNotification({
 					success: "false",
@@ -111,6 +114,7 @@ const Notifications = () => {
 			const response = res.data;
 			if (response.success) {
 				setNotifications(response.data);
+				setShowAlert(response.alert);
 				setNotificationCount(response.data.length);
 			} else {
 				setNotification({
@@ -130,7 +134,7 @@ const Notifications = () => {
 			<Head>
 				<title>Notifications | WP Plagiarism</title>
 			</Head>
-			<Topbar title="Notifications" />
+			<Topbar title="Notifications" alert={showAlert} />
 			<div className="relative lg:p-4 p-2 w-full max-h-[90vh] overflow-x-hidden overflow-y-scroll">
 				<div className="relative overflow-hidden mb-4 pt-2 ">
 					<div className="flex justify-between items-center mb-2 ">
