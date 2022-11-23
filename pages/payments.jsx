@@ -1,5 +1,5 @@
 import Head from "next/head";
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import {
 	CheckCircleIcon,
 	CreditCardIcon,
@@ -55,6 +55,11 @@ const payments = [
 const Payments = () => {
 	const { name, email, user, verified } = Localstorage();
 	const [tab, setTab] = useState("all");
+	const [transactions, setTransactions] = useState([]);
+
+	useEffect(() => {
+		setTransactions(payments);
+	}, []);
 
 	return (
 		<Fragment>
@@ -109,9 +114,7 @@ const Payments = () => {
 				</div>
 
 				<div className="relative pt-4">
-					<div
-						className={` h-10 px-3 bg-white relative flex justify-between items-center w-full border mb-3 border-slate-100 rounded-md`}
-					>
+					<div className="h-10 px-3 bg-white relative md:flex hidden justify-between items-center w-full border mb-3 border-slate-100 rounded-md">
 						<p className="text-xs  w-1/5 font-semibold  text-start text-slate-500">
 							# Transaction ID
 						</p>
@@ -132,63 +135,58 @@ const Payments = () => {
 							Payment Date
 						</p>
 					</div>
-					{payments.map((payment) => {
+					{transactions?.map((transaction) => {
 						return (
-							<Fragment key={payment.id}>
-								<div
-									className={`${
-										payment.read_at === null
-											? "bg-primary-50/50"
-											: "bg-white"
-									} relative flex items-center pr-2 justify-between w-full border mb-3 border-slate-100 rounded-md`}
-								>
-									<div className="relative w-1/5  flex justify-start items-center m-3 w-15 h-15 rounded-full text-primary-500 ">
+							<Fragment key={transaction.id}>
+								<div className="bg-primary-50/50 md:flex-row flex-col relative flex items-center pr-2 justify-between w-full border mb-3 border-slate-100 rounded-md">
+									<div className="relative md:w-1/5 w-full md:p-0 p-3  flex justify-start items-center md:m-3 w-15 h-15 rounded-full text-primary-500 ">
 										<h2 className="text-slate-600 font-semibold text-sm flex justify-center items-center ">
 											<CreditCardIcon className="h-4 w-4" />
 										</h2>
 										<span
 											className={`${
-												payment.status == "success"
+												transaction.status == "success"
 													? "bg-green-400"
-													: payment.status ==
+													: transaction.status ==
 													  "canceled"
 													? "bg-red-400"
 													: "bg-blue-400"
-											} absolute -left-1 top-0 h-2.5 w-2.5 border-white border-2  rounded-full`}
+											} absolute md:-left-1 left-2 md:top-0 top-3 h-2.5 w-2.5 border-white border-2  rounded-full`}
 										></span>
 
-										<p className="text-xs truncate pl-3 w-24 font-semibold text-slate-500/80">
-											#{payment?.transaction_id}
+										<p className="text-xs md:truncate pl-3 md:w-24 w-auto font-semibold text-slate-500/80">
+											#{transaction?.transaction_id}
 										</p>
 									</div>
 									<p
 										className={` ${
-											payment.status == "success"
+											transaction.status == "success"
 												? "text-green-400"
-												: payment.status == "canceled"
+												: transaction.status ==
+												  "canceled"
 												? "text-red-400"
 												: "text-primary-400"
-										} text-xs truncate w-1/5 text-start font-semibold `}
+										} text-xs md:truncate  md:w-1/5 w-full md:m-3 md:p-0 p-1.5 md:text-center text-start font-semibold `}
 									>
-										{`$${payment?.amount} USD`}
+										{`$${transaction?.amount} USD`}
 									</p>
 
-									<p className="text-xs text-center w-1/5 font-semibold text-slate-500/80 flex justify-center items-center">
+									<p className="text-xs md:text-center text-start md:w-1/5 w-full md:m-3 md:p-0 p-1.5 font-semibold text-slate-500/80 flex md:justify-center justify-start items-center">
 										<CreditCardIcon className="h-6 w-6 pr-2" />
-										{payment.method
-											? payment.method
+										{transaction.method
+											? transaction.method
 											: "Card"}
 									</p>
 
-									<p className="text-xs text-center  w-1/5 font-semibold text-slate-500/80">
-										{payment.invoice_id
-											? payment.invoice_id
+									<p className="text-xs md:text-center text-start  md:w-1/5 w-full md:m-3 md:p-0 p-1.5 font-semibold text-slate-500/80">
+										{transaction.invoice_id
+											? transaction.invoice_id
 											: "Invoice Number"}
 									</p>
 
-									<p className="text-xs text-center  w-1/5 font-semibold text-slate-500/80">
-										{payment.created_at
-											? payment.created_at
+									<p className="text-xs md:text-center text-start  md:w-1/5 w-full md:m-3 md:p-0 p-1.5 font-semibold text-slate-500/80">
+										{transaction.created_at
+											? transaction.created_at
 											: ""}
 									</p>
 								</div>
