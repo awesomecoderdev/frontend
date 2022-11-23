@@ -48,7 +48,21 @@ const Notifications = () => {
 				const response = res.data;
 				if (response.success) {
 					setNotificationCount(response.data.length);
-					setNotifications(response.data);
+
+					if (unread) {
+						const unreadNotifications = response.data.filter(
+							(notifications) => notifications.read_at === null
+						);
+
+						if (unreadNotifications.length == 0) {
+							setUnread(false);
+							setNotifications(response.data);
+						} else {
+							setNotifications(unreadNotifications);
+						}
+					} else {
+						setNotifications(response.data);
+					}
 				} else {
 					setNotification({
 						success: "false",
@@ -185,7 +199,7 @@ const Notifications = () => {
 										<div
 											className={`${
 												notification.read_at === null
-													? "bg-primary-50"
+													? "bg-primary-50/50"
 													: "bg-white"
 											} relative flex items-start w-full border border-slate-100 py-3 mb-3 rounded-md`}
 										>

@@ -17,8 +17,8 @@ export default function Profile() {
 
 			<div className="relative lg:p-4 p-2 w-full max-h-[90vh] overflow-x-hidden overflow-y-scroll">
 				<form action="#" method="POST">
-					<div className=" shadow sm:rounded-md">
-						<div className="bg-white px-4 py-5 sm:p-6">
+					<div className="relative bg-white overflow-hidden rounded-xl border border-slate-300/50">
+						<div className=" px-4 py-5 sm:p-6">
 							<div className="grid grid-cols-6 gap-6">
 								<div className="col-span-6 sm:col-span-3">
 									<label
