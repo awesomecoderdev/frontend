@@ -42,7 +42,10 @@ const Topbar = ({ title = "Dashboard", alert = null }) => {
 
 	useEffect(() => {
 		document.addEventListener("click", handelOutsideClick, true);
-		setShowAlert(alert);
+
+		if (alert != null) {
+			setShowAlert(alert);
+		}
 	}, [alert]);
 
 	const dropDownRef = useRef(null);
