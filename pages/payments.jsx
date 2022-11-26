@@ -52,6 +52,7 @@ const payments = [
 		status: "success",
 	},
 ];
+
 const Payments = () => {
 	const { name, email, user, verified } = Localstorage();
 	const [tab, setTab] = useState("all");
@@ -59,7 +60,25 @@ const Payments = () => {
 
 	useEffect(() => {
 		setTransactions(payments);
-	}, []);
+
+		if (tab == "all") {
+			setTransactions(payments);
+		} else if (tab == "success") {
+			const successTransactions = payments.filter(
+				(item) => item.status === "success"
+			);
+			console.log(successTransactions);
+
+			setTransactions(successTransactions);
+		} else if (tab == "canceled") {
+			const canceledTransactions = payments.filter(
+				(item) => item.status === "canceled"
+			);
+			console.log(canceledTransactions);
+
+			setTransactions(canceledTransactions);
+		}
+	}, [tab]);
 
 	return (
 		<Fragment>
@@ -158,18 +177,18 @@ const Payments = () => {
 											#{transaction?.transaction_id}
 										</p>
 									</div>
-									<p
-										className={` ${
-											transaction.status == "success"
-												? "text-green-400"
-												: transaction.status ==
-												  "canceled"
-												? "text-red-400"
-												: "text-primary-400"
-										} text-xs md:truncate  md:w-1/5 w-full md:m-3 md:p-0 p-1.5 md:text-center text-start font-semibold `}
-									>
-										{`$${transaction?.amount} USD`}
-									</p>
+									<div className="relative ">
+										<span
+											className={` ${
+												transaction.status == "success"
+													? "text-green-800 bg-green-100"
+													: transaction.status ==
+													  "canceled"
+													? "text-red-800 bg-red-100"
+													: "text-primary-800 bg-primary-100"
+											} md:truncate  md:w-1/5 w-auto md:m-3 md:text-center text-start rounded-full px-3 py-1 text-xs font-medium `}
+										>{`$${transaction?.amount} USD`}</span>
+									</div>
 
 									<p className="text-xs md:text-center text-start md:w-1/5 w-full md:m-3 md:p-0 p-1.5 font-semibold text-slate-500/80 flex md:justify-center justify-start items-center">
 										<CreditCardIcon className="h-6 w-6 pr-2" />

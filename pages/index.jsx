@@ -1,20 +1,20 @@
-import React, { Fragment, useContext, useEffect, useState } from 'react';
-import Head from 'next/head'
-import Image from 'next/image'
-import UseAuth from '../lib/useAuth';
-import request from '../lib/request';
-import Hero from '../components/Hero';
-import { useRouter } from 'next/router';
+import React, { Fragment, useContext, useEffect, useState } from "react";
+import Head from "next/head";
+import Image from "next/image";
+import UseAuth from "../lib/useAuth";
+import request from "../lib/request";
+import Hero from "../components/Hero";
+import { useRouter } from "next/router";
+import Pricing from "../components/Pricing";
 
-const Index = ({setNotification,posts}) => {
-
+const Index = ({ setNotification, posts }) => {
 	return (
 		<Fragment>
 			<Hero />
+			<Pricing />
 		</Fragment>
 	);
-}
-
+};
 
 // export const getStaticProps = async () => {
 //   const res = await fetch('')
@@ -40,7 +40,6 @@ const Index = ({setNotification,posts}) => {
 // 		response.props.next_auth = cookies.next_auth === "true" ? true : false ;
 // 	}
 
-
 // 	if(query.logout){
 // 		response.redirect = {
 // 			permanent: false,
@@ -53,7 +52,4 @@ const Index = ({setNotification,posts}) => {
 // 	return response;
 // }
 
-
 export default Index;
-
-
