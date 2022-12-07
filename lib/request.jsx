@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const request = axios.create({
-	baseURL: "https://api.wpplagiarism.dev/v1/",
+	baseURL: "https://api.wpplagiarism.one/v1/",
 	withCredentials: true,
 	headers: {
 		"X-Requested-With": "XMLHttpRequest",
