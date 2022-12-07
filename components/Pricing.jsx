@@ -3,18 +3,18 @@ import React, { Fragment } from "react";
 const Pricing = () => {
 	return (
 		<Fragment>
-			<section class="relative z-20 overflow-hidden bg-white pt-20 pb-12 lg:pt-[120px] lg:pb-[90px]">
-				<div class="container mx-auto">
-					<div class="-mx-4 flex flex-wrap">
-						<div class="w-full px-4">
-							<div class="mx-auto mb-[60px] max-w-[510px] text-center lg:mb-20">
-								<span class="text-primary-400mb-2 block text-lg font-semibold">
+			<section className="relative z-20 overflow-hidden bg-white pt-20 pb-12 lg:pt-[120px] lg:pb-[90px]">
+				<div className="container mx-auto">
+					<div className="-mx-4 flex flex-wrap">
+						<div className="w-full px-4">
+							<div className="mx-auto mb-[60px] max-w-[510px] text-center lg:mb-20">
+								<span className="text-primary-400mb-2 block text-lg font-semibold">
 									Pricing Table
 								</span>
-								<h2 class="text-slate-600 mb-4 text-3xl font-bold sm:text-4xl md:text-[40px]">
+								<h2 className="text-slate-600 mb-4 text-3xl font-bold sm:text-4xl md:text-[40px]">
 									Our Pricing Plan
 								</h2>
-								<p class="text-body-color text-base">
+								<p className="text-body-color text-base">
 									There are many variations of passages of
 									Lorem Ipsum available but the majority have
 									suffered alteration in some form.
@@ -22,51 +22,51 @@ const Pricing = () => {
 							</div>
 						</div>
 					</div>
-					<div class="-mx-4 flex flex-wrap justify-center">
-						<div class="w-full px-4 md:w-1/2 lg:w-1/3">
-							<div class="border-primary-400shadow-pricing relative z-10 mb-10 overflow-hidden rounded-xl border border-opacity-20 bg-white py-10 px-8 sm:p-12 lg:py-10 lg:px-6 xl:p-12">
-								<span class="text-primary-400mb-4 block text-lg font-semibold">
+					<div className="-mx-4 flex flex-wrap justify-center">
+						<div className="w-full px-4 md:w-1/2 lg:w-1/3">
+							<div className="border-primary-400shadow-pricing relative z-10 mb-10 overflow-hidden rounded-xl border border-opacity-20 bg-white py-10 px-8 sm:p-12 lg:py-10 lg:px-6 xl:p-12">
+								<span className="text-primary-400mb-4 block text-lg font-semibold">
 									Personal
 								</span>
-								<h2 class="text-dark mb-5 text-[42px] font-bold">
+								<h2 className="text-dark mb-5 text-[42px] font-bold">
 									$59
-									<span class="text-body-color text-base font-medium">
+									<span className="text-body-color text-base font-medium">
 										{" "}
 										/ year{" "}
 									</span>
 								</h2>
-								<p class="text-body-color mb-8 border-b border-[#F2F2F2] pb-8 text-base">
+								<p className="text-body-color mb-8 border-b border-[#F2F2F2] pb-8 text-base">
 									Perfect for using in a personal website or a
 									client project.
 								</p>
-								<div class="mb-7">
-									<p class="text-body-color mb-1 text-base leading-loose">
+								<div className="mb-7">
+									<p className="text-body-color mb-1 text-base leading-loose">
 										1 User
 									</p>
-									<p class="text-body-color mb-1 text-base leading-loose">
+									<p className="text-body-color mb-1 text-base leading-loose">
 										All UI components
 									</p>
-									<p class="text-body-color mb-1 text-base leading-loose">
+									<p className="text-body-color mb-1 text-base leading-loose">
 										Lifetime access
 									</p>
-									<p class="text-body-color mb-1 text-base leading-loose">
+									<p className="text-body-color mb-1 text-base leading-loose">
 										Free updates
 									</p>
-									<p class="text-body-color mb-1 text-base leading-loose">
+									<p className="text-body-color mb-1 text-base leading-loose">
 										Use on 1 (one) project
 									</p>
-									<p class="text-body-color mb-1 text-base leading-loose">
+									<p className="text-body-color mb-1 text-base leading-loose">
 										3 Months support
 									</p>
 								</div>
 								<a
 									href="#"
-									class="text-primary-400hover:bg-primary-400hover:border-primary-400block w-full rounded-md border border-[#D4DEFF] bg-transparent p-4 text-center text-base font-semibold transition hover:text-white"
+									className="text-primary-400hover:bg-primary-400hover:border-primary-400block w-full rounded-md border border-[#D4DEFF] bg-transparent p-4 text-center text-base font-semibold transition hover:text-white"
 								>
 									Choose Personal
 								</a>
 								<div>
-									<span class="absolute right-0 top-7 z-[-1]">
+									<span className="absolute right-0 top-7 z-[-1]">
 										<svg
 											width="77"
 											height="172"
@@ -102,7 +102,7 @@ const Pricing = () => {
 											</defs>
 										</svg>
 									</span>
-									<span class="absolute right-4 top-4 z-[-1]">
+									<span className="absolute right-4 top-4 z-[-1]">
 										<svg
 											width="41"
 											height="89"
@@ -339,50 +339,50 @@ const Pricing = () => {
 								</div>
 							</div>
 						</div>
-						<div class="w-full px-4 md:w-1/2 lg:w-1/3">
-							<div class="border-primary-400shadow-pricing relative z-10 mb-10 overflow-hidden rounded-xl border border-opacity-20 bg-white py-10 px-8 sm:p-12 lg:py-10 lg:px-6 xl:p-12">
-								<span class="text-primary-400mb-4 block text-lg font-semibold">
+						<div className="w-full px-4 md:w-1/2 lg:w-1/3">
+							<div className="border-primary-400shadow-pricing relative z-10 mb-10 overflow-hidden rounded-xl border border-opacity-20 bg-white py-10 px-8 sm:p-12 lg:py-10 lg:px-6 xl:p-12">
+								<span className="text-primary-400mb-4 block text-lg font-semibold">
 									Business
 								</span>
-								<h2 class="text-dark mb-5 text-[42px] font-bold">
+								<h2 className="text-dark mb-5 text-[42px] font-bold">
 									$199
-									<span class="text-body-color text-base font-medium">
+									<span className="text-body-color text-base font-medium">
 										{" "}
 										/ year{" "}
 									</span>
 								</h2>
-								<p class="text-body-color mb-8 border-b border-[#F2F2F2] pb-8 text-base">
+								<p className="text-body-color mb-8 border-b border-[#F2F2F2] pb-8 text-base">
 									Perfect for using in a Business website or a
 									client project.
 								</p>
-								<div class="mb-7">
-									<p class="text-body-color mb-1 text-base leading-loose">
+								<div className="mb-7">
+									<p className="text-body-color mb-1 text-base leading-loose">
 										5 Users
 									</p>
-									<p class="text-body-color mb-1 text-base leading-loose">
+									<p className="text-body-color mb-1 text-base leading-loose">
 										All UI components
 									</p>
-									<p class="text-body-color mb-1 text-base leading-loose">
+									<p className="text-body-color mb-1 text-base leading-loose">
 										Lifetime access
 									</p>
-									<p class="text-body-color mb-1 text-base leading-loose">
+									<p className="text-body-color mb-1 text-base leading-loose">
 										Free updates
 									</p>
-									<p class="text-body-color mb-1 text-base leading-loose">
+									<p className="text-body-color mb-1 text-base leading-loose">
 										Use on 3 (Three) project
 									</p>
-									<p class="text-body-color mb-1 text-base leading-loose">
+									<p className="text-body-color mb-1 text-base leading-loose">
 										4 Months support
 									</p>
 								</div>
 								<a
 									href="#"
-									class="bg-primary-400 border-primary-500 block w-full rounded-md border p-4 text-center text-base font-semibold text-white transition hover:bg-opacity-90"
+									className="bg-primary-400 border-primary-500 block w-full rounded-md border p-4 text-center text-base font-semibold text-white transition hover:bg-opacity-90"
 								>
 									Choose Business
 								</a>
 								<div>
-									<span class="absolute right-0 top-7 z-[-1]">
+									<span className="absolute right-0 top-7 z-[-1]">
 										<svg
 											width="77"
 											height="172"
@@ -418,7 +418,7 @@ const Pricing = () => {
 											</defs>
 										</svg>
 									</span>
-									<span class="absolute right-4 top-4 z-[-1]">
+									<span className="absolute right-4 top-4 z-[-1]">
 										<svg
 											width="41"
 											height="89"
@@ -655,50 +655,50 @@ const Pricing = () => {
 								</div>
 							</div>
 						</div>
-						<div class="w-full px-4 md:w-1/2 lg:w-1/3">
-							<div class="border-primary-400shadow-pricing relative z-10 mb-10 overflow-hidden rounded-xl border border-opacity-20 bg-white py-10 px-8 sm:p-12 lg:py-10 lg:px-6 xl:p-12">
-								<span class="text-primary-400mb-4 block text-lg font-semibold">
+						<div className="w-full px-4 md:w-1/2 lg:w-1/3">
+							<div className="border-primary-400shadow-pricing relative z-10 mb-10 overflow-hidden rounded-xl border border-opacity-20 bg-white py-10 px-8 sm:p-12 lg:py-10 lg:px-6 xl:p-12">
+								<span className="text-primary-400mb-4 block text-lg font-semibold">
 									Professional
 								</span>
-								<h2 class="text-dark mb-5 text-[42px] font-bold">
+								<h2 className="text-dark mb-5 text-[42px] font-bold">
 									$256
-									<span class="text-body-color text-base font-medium">
+									<span className="text-body-color text-base font-medium">
 										{" "}
 										/ year{" "}
 									</span>
 								</h2>
-								<p class="text-body-color mb-8 border-b border-[#F2F2F2] pb-8 text-base">
+								<p className="text-body-color mb-8 border-b border-[#F2F2F2] pb-8 text-base">
 									Perfect for using in a Professional website
 									or a client project.
 								</p>
-								<div class="mb-7">
-									<p class="text-body-color mb-1 text-base leading-loose">
+								<div className="mb-7">
+									<p className="text-body-color mb-1 text-base leading-loose">
 										Unlimited Users
 									</p>
-									<p class="text-body-color mb-1 text-base leading-loose">
+									<p className="text-body-color mb-1 text-base leading-loose">
 										All UI components
 									</p>
-									<p class="text-body-color mb-1 text-base leading-loose">
+									<p className="text-body-color mb-1 text-base leading-loose">
 										Lifetime access
 									</p>
-									<p class="text-body-color mb-1 text-base leading-loose">
+									<p className="text-body-color mb-1 text-base leading-loose">
 										Free updates
 									</p>
-									<p class="text-body-color mb-1 text-base leading-loose">
+									<p className="text-body-color mb-1 text-base leading-loose">
 										Use on Unlimited project
 									</p>
-									<p class="text-body-color mb-1 text-base leading-loose">
+									<p className="text-body-color mb-1 text-base leading-loose">
 										12 Months support
 									</p>
 								</div>
 								<a
 									href="javascript:void(0)"
-									class="text-primary-400hover:bg-primary-400hover:border-primary-400block w-full rounded-md border border-[#D4DEFF] bg-transparent p-4 text-center text-base font-semibold transition hover:text-white"
+									className="text-primary-400hover:bg-primary-400hover:border-primary-400block w-full rounded-md border border-[#D4DEFF] bg-transparent p-4 text-center text-base font-semibold transition hover:text-white"
 								>
 									Choose Professional
 								</a>
 								<div>
-									<span class="absolute right-0 top-7 z-[-1]">
+									<span className="absolute right-0 top-7 z-[-1]">
 										<svg
 											width="77"
 											height="172"
@@ -734,7 +734,7 @@ const Pricing = () => {
 											</defs>
 										</svg>
 									</span>
-									<span class="absolute right-4 top-4 z-[-1]">
+									<span className="absolute right-4 top-4 z-[-1]">
 										<svg
 											width="41"
 											height="89"

@@ -16,7 +16,7 @@ const UseAuth = ({ middleware } = {}) => {
 		if (user || error) {
 			setTimeout(() => {
 				setIsLoading(false);
-			}, 1500);
+			}, 1700);
 		}
 
 		if (user && user.success == true) {

@@ -20,6 +20,7 @@ import {
 	protectedRoutes,
 } from "../lib/controller";
 import AppContext, { AppContextProvider } from "../context/AppContext";
+import Head from "next/head";
 
 const App = ({ Component, pageProps, authCheck }) => {
 	// console.clear();
@@ -41,33 +42,38 @@ const App = ({ Component, pageProps, authCheck }) => {
 				{protectedRoutes.includes(route) ? (
 					<AnimatePresence>
 						{isLoading ? (
-							<Loading
-								variants={{
-									start: {
-										opacity: 0.8,
-									},
-									finished: {
-										opacity: 1,
-										transition: {
-											duration: 1,
-											ease: "easeInOut",
+							<Fragment>
+								<Head>
+									<title>Wp Plagiarism</title>
+								</Head>
+								<Loading
+									variants={{
+										start: {
+											opacity: 0.8,
 										},
-									},
-									exit: {
-										scale: 0.8,
-										transition: {
-											duration: 1.8,
-											ease: "easeInOut",
-											// type: "spring",
-											// stiffness: 2600,
-											// damping: 260
+										finished: {
+											opacity: 1,
+											transition: {
+												duration: 1,
+												ease: "easeInOut",
+											},
 										},
-									},
-								}}
-								initial="start"
-								animate="finished"
-								exit="exit"
-							/>
+										exit: {
+											scale: 0.8,
+											transition: {
+												duration: 1.8,
+												ease: "easeInOut",
+												// type: "spring",
+												// stiffness: 2600,
+												// damping: 260
+											},
+										},
+									}}
+									initial="start"
+									animate="finished"
+									exit="exit"
+								/>
+							</Fragment>
 						) : (
 							<motion.section
 								variants={{
